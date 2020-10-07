@@ -8,6 +8,7 @@ import { BaseBanner } from './components/banner/BaseBanner';
 import { Panel } from './components/panel/Panel';
 import { UBlockStyles } from './components/uBlock/UBlockStyles';
 import { Aside } from './components/aside/Aside';
+import { MultiColumnAM } from './components/layouts/multiColumnAM/MultiColumnAM';
 
 export {
   Card,
@@ -19,4 +20,5 @@ export {
   Panel,
   UBlockStyles,
   Aside,
+  MultiColumnAM,
 };
