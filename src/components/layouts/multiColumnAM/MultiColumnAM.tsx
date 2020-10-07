@@ -6,20 +6,19 @@
  */
 
 import React from 'react';
-import { MultiColumnAMStyles } from './MultiColumnAMStyles';
+import { MultiColumnAMStyles } from '../multiColumnAM/MultiColumnAMStyles';
 interface MultiColumnAMProps {
   aside: JSX.Element;
-  mainContent: JSX.Element;
 }
 
 export const MultiColumnAM: React.FC<MultiColumnAMProps> = ({
   aside,
-  mainContent,
+  children,
 }): JSX.Element => {
   return (
     <MultiColumnAMStyles>
       {aside}
-      <main>{mainContent}</main>
+      <main>{children}</main>
     </MultiColumnAMStyles>
   );
 };

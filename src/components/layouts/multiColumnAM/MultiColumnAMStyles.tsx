@@ -62,7 +62,7 @@ export const MultiColumnAMStyles = styled.div`
     }
   } */
 
-  ${AsideStyles} ${UBlockStyles}:first-child, ${AsideStyles} ${UBlockStyles}:first-of-type {
+  /* ${AsideStyles} ${UBlockStyles}:first-child, ${AsideStyles} ${UBlockStyles}:first-of-type {
     padding-top: 0;
     @include media('>s') {
       ${UBlockStyles}:first-child {
@@ -73,24 +73,24 @@ export const MultiColumnAMStyles = styled.div`
         padding-top: 10px;
       }
     }
-  }
+  } */
 
   /**
  * Grid Aside + Main Layout
  */
-
-  .l-multicol--am {
-    max-width: calc(1021px + #{var(--block-padding-s)} * 2);
-
-    /* @include media('>layout-s') { */
-    grid-template-columns: calc(200px + #{var(--layout-gutter)}) auto;
-    max-width: calc(1021px + #{var(--block-margin)} * 2);
-
-    /* Add padding and border to nav element */
-    .multicol__nav {
-      border-right: 1px solid var(--grey);
-      padding-right: var(--grid-gutter);
-    }
-    /* } */
+  .multicol__nav {
+    border-right: 1px solid var(--grey);
+    padding-right: var(--grid-gutter);
   }
+
+  /* .l-multicol--am { */
+  /* max-width: calc(1021px + #{var(--block-padding-s)} * 2); */
+
+  /* @include media('>layout-s') { */
+  /* grid-template-columns: calc(200px + #{var(--layout-gutter)}) auto;
+    max-width: calc(1021px + #{var(--block-margin)} * 2); */
+
+  /* Add padding and border to nav element */
+  /* } */
+  /* } */
 `;
