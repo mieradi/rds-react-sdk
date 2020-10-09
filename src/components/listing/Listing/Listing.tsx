@@ -3,6 +3,7 @@ import { UBlockStyles } from '../../uBlock/UBlockStyles';
 import { ListingStyles } from './ListingStyles';
 
 interface ListingProps {
+  children: React.ReactNode;
   options: {
     backgroundColor: string;
     heading?: string;
