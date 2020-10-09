@@ -1,27 +1,27 @@
 /**
- * @name ListItemLoadingState
+ * @name ListingLoadingState
  * @desc description here
  * @param {} param desc
  * @returns returns desc
  */
 
 import React from 'react';
-import { ListItemLoadingStyles } from './ListingLoadingStateStyles';
+import { ListingLoadingStateStyles } from './ListingLoadingStateStyles';
 
-interface ListItemLoadingStateProps {
+interface ListingLoadingStateProps {
   rows: number;
 }
 
-export const ListItemLoadingState: React.FC<ListItemLoadingStateProps> = ({
+export const ListingLoadingState: React.FC<ListingLoadingStateProps> = ({
   rows,
 }): JSX.Element => {
   return (
     <React.Fragment>
       {[...Array(rows)].map((_, i) => (
-        <ListItemLoadingStyles key={i}>
+        <ListingLoadingStateStyles key={i}>
           <span className="c-loading-image w-100 h-100" />
           <span className="c-loading-text w-100" />
-        </ListItemLoadingStyles>
+        </ListingLoadingStateStyles>
       ))}
     </React.Fragment>
   );

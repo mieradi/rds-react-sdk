@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ListItemLoadingStyles = styled.div`
+export const ListingLoadingStateStyles = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 760px;
