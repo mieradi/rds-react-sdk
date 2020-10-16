@@ -3,8 +3,8 @@ interface ListItemProps {
   heading: string;
   url: string;
   description?: string;
-  imageSrc?: string | undefined;
-  icon?: JSX.Element | undefined;
+  imageSrc?: string;
+  icon?: JSX.Element;
   badge?: string;
 }
 export const ListItem: React.FC<ListItemProps> = ({
