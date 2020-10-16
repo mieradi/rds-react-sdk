@@ -2,7 +2,7 @@ import './styles.scss';
 import { Card } from './components/card/Card';
 import { Listing } from './components/listing/Listing/Listing';
 import { ListItem } from './components/listing/ListItem';
-import { MastHead } from './components/masthead/Masthead';
+import { Masthead } from './components/masthead/Masthead';
 import { GridStyles } from './components/grid/GridStyles';
 import { BaseBanner } from './components/banner/BaseBanner';
 import { Panel } from './components/panel/Panel';
@@ -15,7 +15,7 @@ export {
   Card,
   Listing,
   ListItem,
-  MastHead,
+  Masthead,
   GridStyles,
   BaseBanner,
   Panel,

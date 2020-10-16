@@ -26,7 +26,7 @@ function handleScrollListeners({
   setHasScrolled(window.pageYOffset > previousScrollPosition!);
 }
 
-export const MastHead: React.FC<MastHeadProps> = ({
+export const Masthead: React.FC<MastHeadProps> = ({
   children,
   title,
   logo,
@@ -78,5 +78,3 @@ export const MastHead: React.FC<MastHeadProps> = ({
     </UBlockStyles>
   );
 };
-
-export default MastHead;
