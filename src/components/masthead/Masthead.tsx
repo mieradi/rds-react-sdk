@@ -3,62 +3,62 @@ import { MastheadStyles } from './MastheadStyles';
 import { UBlockStyles } from '../uBlock/UBlockStyles';
 // import { useWindowDimensions } from '@/customHooks/useWindowDimensions';
 
-interface handleScrollListenersParams {
-  window: Window;
-  setPreviousScrollPosition: Function;
-  setHasScrolled: Function;
-  previousScrollPosition: number | null;
-}
-
 interface MastHeadProps {
   title: string;
   logo: JSX.Element;
   children?: React.ReactNode;
 }
 
-function handleScrollListeners({
-  window,
-  setPreviousScrollPosition,
-  setHasScrolled,
-  previousScrollPosition,
-}: handleScrollListenersParams) {
-  setPreviousScrollPosition(window.pageYOffset);
-  setHasScrolled(window.pageYOffset > previousScrollPosition!);
-}
-
-export const Masthead: React.FC<MastHeadProps> = ({
+export const MastHead: React.FC<MastHeadProps> = ({
   children,
   title,
   logo,
 }): JSX.Element => {
-  const [hasScrolled, setHasScrolled] = useState(false);
-  const [previousScrollPosition, setPreviousScrollPosition] = useState(0);
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
 
   useEffect(() => {
-    setPreviousScrollPosition(window.pageYOffset);
-    window.addEventListener('scroll', (() => {
-      handleScrollListeners({
-        window,
-        setPreviousScrollPosition,
-        setHasScrolled,
-        previousScrollPosition,
-      });
-    }) as EventListener);
+    const base = 0;
+    //scroll positon
+    let lastScrollY = window.pageYOffset;
+    //make sure we are just run our event listener callback once in each requestAnimationFrame
+    let ticking = false;
 
+    //update scroll positon and isScrollingUp var in state
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
+
+      //calculate scroll positon against prev scroll
+      if (Math.abs(scrollY - lastScrollY) < base) {
+        ticking = false;
+        return;
+      }
+      //set state
+      setIsScrollingUp(scrollY > lastScrollY ? false : true);
+      //comparing last scroll position
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      //optimize
+      ticking = false;
+    };
+
+    // init the updated Scroll position within animationFrame
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    //init onScroll in listener
+    window.addEventListener('scroll', (() => onScroll()) as EventListener);
+
+    //remove listener on cleanup
     return () =>
-      window.removeEventListener('scroll', (() => {
-        handleScrollListeners({
-          window,
-          setPreviousScrollPosition,
-          setHasScrolled,
-          previousScrollPosition,
-        });
-      }) as EventListener);
+      window.removeEventListener('scroll', onScroll as EventListener);
   }, []);
 
   return (
     <UBlockStyles masthead borderTop full backgroundColor="white">
-      <MastheadStyles hasScrolled={hasScrolled}>
+      <MastheadStyles isScrollingUp={isScrollingUp}>
         <h1>
           <a href="/">
             {logo}
@@ -78,3 +78,5 @@ export const Masthead: React.FC<MastHeadProps> = ({
     </UBlockStyles>
   );
 };
+
+export default MastHead;

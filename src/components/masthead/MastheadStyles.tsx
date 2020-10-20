@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 type MastheadStylesProps = {
-  readonly hasScrolled?: boolean;
+  readonly isScrollingUp?: boolean;
 };
 
 export const MastheadStyles = styled.div<MastheadStylesProps>`
@@ -26,7 +26,7 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
       margin-left: 0 !important;
     }
   }
-  display: flex;
+  display: ${({ isScrollingUp }) => (isScrollingUp ? 'flex' : 'none')};
   align-items: center;
   .c-nav,
   & > ul,
@@ -72,11 +72,6 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
     }
 
     /* Modifiers  */
-
-    /* ${({ hasScrolled }) =>
-      hasScrolled &&
-      `box-shadow: 0 10px 11px -7px var(--grey-yoda);
-      `} */
 
     .c-menupopup > button {
       padding-right: 25px;
