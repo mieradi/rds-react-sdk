@@ -3,13 +3,13 @@ import { MastheadStyles } from './MastheadStyles';
 import { UBlockStyles } from '../uBlock/UBlockStyles';
 // import { useWindowDimensions } from '@/customHooks/useWindowDimensions';
 
-interface MastHeadProps {
+interface MastheadProps {
   title: string;
   logo: JSX.Element;
   children?: React.ReactNode;
 }
 
-export const MastHead: React.FC<MastHeadProps> = ({
+export const Masthead: React.FC<MastheadProps> = ({
   children,
   title,
   logo,
@@ -78,5 +78,3 @@ export const MastHead: React.FC<MastHeadProps> = ({
     </UBlockStyles>
   );
 };
-
-export default MastHead;
