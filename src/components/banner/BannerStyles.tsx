@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { greaterThan } from '../cuMediaQueries';
 
 interface BannerStylesProps {
   withImage?: boolean;
+  isIntranet?: boolean;
 }
 export const BannerStyles = styled.div<BannerStylesProps>`
   /* Pulls grey rows up when directly after banner */
@@ -13,9 +15,9 @@ export const BannerStyles = styled.div<BannerStylesProps>`
   padding: 20px 0;
   text-align: center;
 
-  @include media('>s') {
+  ${greaterThan('s')`
     padding: 40px 0;
-  }
+  `}
 
   section {
     width: 100%;
@@ -26,11 +28,10 @@ export const BannerStyles = styled.div<BannerStylesProps>`
   h2 {
     margin: 0;
     padding: 0;
-
-    @include media('>s') {
-      font-size: $pixel36;
-      line-height: 1.2;
-    }
+    ${greaterThan('s')`
+        font-size: var(--pixel36);
+        line-height: 1.2;
+    `}
   }
 
   /* Breadcrumbs */
@@ -77,23 +78,18 @@ export const BannerStyles = styled.div<BannerStylesProps>`
 
   .c-searchform {
     width: 100%;
-    margin-top: $block-padding-s;
+    margin-top: var(--block-padding-s);
 
-    @include media('>s') {
-      margin-top: $block-padding-m;
-    }
+    ${greaterThan('s')`
+        margin-top: var(--block-padding-m);
+        `}
   }
 
   /* End b-banner */
 
-  /* need for Yoast plugin UGH!! */
-  .breadcrumb_last {
-    display: none;
-  }
-
   /*
  * Banner Image Modifier
- * =======================================
+* =======================================
  */
   ${({ withImage }) =>
     withImage &&
@@ -113,28 +109,23 @@ export const BannerStyles = styled.div<BannerStylesProps>`
       background-color: rgba(0, 0, 0, 0.6);
     }
 
-    @include media('>s') {
+    ${greaterThan('s')`
+        font-size: $pixel36;
+        line-height: 1.2;
+    `}
       padding-top: 150px;
       padding-bottom: 150px;
     }
 
     section {
       z-index: 1;
-      max-width: calc(#{map-get($breakpoints, s)} + #{$block-padding-m} * 2);
+      max-width: calc(var(--breakpoint-s))} + var(--block-padding-m) * 2);
 
-      @include media('>s') {
+      ${greaterThan('s')`
         padding-left: 30px;
         padding-right: 30px;
-      }
+        `}
 
-      /* TODO without image has all content restricted to small breakpoint, matching this up by removing the following */
-      /* Restrict content inside to a set width */
-      /* & > *:not(nav) { */
-      /* max-width: #{map-get($breakpoints, s)}; */
-      /* margin-left: auto; */
-      /* margin-right: auto; */
-      /* } */
-    /* } */
 
     ol {
       padding-bottom: 10px;
@@ -142,10 +133,6 @@ export const BannerStyles = styled.div<BannerStylesProps>`
 
       a {
         color: white;
-
-        //&:hover {
-        //	color: $red;
-        //}
       }
     }
 `}
@@ -178,4 +165,24 @@ export const BannerStyles = styled.div<BannerStylesProps>`
   .b-wideimage--bottom {
     background-position: center bottom;
   }
+
+  ${({ isIntranet }) =>
+    isIntranet &&
+    `
+    margin-top: 0;
+	margin-bottom: 0;
+	display: block;
+	text-align: left;
+    padding: 0 25px !important;
+    max-width: 1024px;
+    margin: 0 auto;
+    ${greaterThan('ll')`
+        padding: 0 !important;
+    `}
+	h1 {
+		margin: 0;
+		padding:0;
+		font-size:15px
+	}
+  `}
 `;
