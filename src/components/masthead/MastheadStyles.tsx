@@ -6,7 +6,7 @@ type MastheadStylesProps = {
 export const MastheadStyles = styled.div<MastheadStylesProps>`
   border-top: 2px solid var(--red);
   border-bottom: 1px solid var(--grey-kenobi);
-  height: calc(#{var(--masthead_height)} + 3px);
+  height: calc(var(--masthead_height) + 3px);
   & .c-nav,
   & > ul,
   & .c-nav > ul {
@@ -26,7 +26,8 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
       margin-left: 0 !important;
     }
   }
-  display: ${({ isScrollingUp }) => (isScrollingUp ? 'flex' : 'none')};
+  /* display: ${({ isScrollingUp }) => (isScrollingUp ? 'flex' : 'none')}; */
+  display: flex;
   align-items: center;
   .c-nav,
   & > ul,
