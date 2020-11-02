@@ -29,7 +29,7 @@ export const ListItem: React.FC<ListItemProps> = ({
           <h3>{heading}</h3>
           {description && <p itemProp="description">{description}</p>}
         </header>
-        <span className="c-badge">{badge}</span>
+        {badge && <span className="c-badge">{badge}</span>}
       </a>
     </li>
   );

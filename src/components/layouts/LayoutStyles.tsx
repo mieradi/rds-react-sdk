@@ -62,17 +62,11 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
       &:first-child,
       &:first-of-type {
         padding-top: 0;
+        ${greaterThan('s')`
+         padding-top: 10px;
+        `}
       }
     }
-
-    ${greaterThan('s')`
-     ${UBlockStyles}:first-child {
-        padding-top: 10px;
-      }
-
-      ${UBlockStyles}:first-of-type {
-        padding-top: 10px;
-      }`}
   }
 
   /**
@@ -190,9 +184,26 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
         }
     `}
 
-
+`}
 
     /* Modifier to change element template areas and order when stacked */
+         ${({ sidebarTop }) =>
+    sidebarTop &&
+    `
+        ${between('ls', 'll')`
+            grid-template-areas:
+            'nav sidebar'
+            'nav main';
+            `}
 
+        ${greaterThan('ls')`
+            main {
+                order: 2;
+            }
+
+            .multicol__sidebar {
+                order: 1;
+            }
+            `}
         `}
 `;

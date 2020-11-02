@@ -10,33 +10,80 @@ interface PanelStylesProps {
   size?: string | number;
 }
 
-export const PanelStyles = styled.div<PanelStylesProps>`
+export const PanelStyles = styled.section<PanelStylesProps>`
   position: relative;
-  height: 100%;
-  /* helps with equal vert height in listings */
   background-color: white;
   max-width: 768px;
   border-radius: 10px;
-  box-shadow: 0 5px 8px 2px rgba(83, 83, 83, 0.2);
+  box-shadow: var(--ds-y);
+  padding: 20px !important;
+  margin-bottom: 30px;
 
-  h3 {
-    font-size: var(--pixel16);
-    margin: 0 0 5px;
-    line-height: 1.25;
-    border-bottom: 0;
+  > header {
+    border-bottom: 1px solid var(--grey-yoda);
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0 20px;
+    position: relative;
 
-    @include media('>s') {
-      font-size: var(--pixel15);
+    h2 {
+      font-size: var(--pixel16);
+      border: none !important;
+    }
+
+    p {
+      font-size: var(--pixel14);
+      margin-bottom: 20px;
+    }
+
+    button {
+      position: absolute;
+      top: 0;
+      right: 20px;
+    }
+
+    span {
+      position: absolute;
+      left: -9999px;
+    }
+
+    svg {
+      width: 20px;
     }
   }
-  header {
-    padding: 15px;
-    border-radius: 10px 10px 0 0;
-    /* @include media('>s') {
-      padding: 25px 25px 50px;
-    } */
+
+  footer {
+    border-top: 1px solid var(--grey-yoda);
+    margin: 0 -20px;
+    padding: 20px 20px 0 20px;
+    display: flex;
+
+    p {
+      margin: 0;
+    }
+
+    a:not(.c-buttoncta) {
+      color: var(--link);
+      font-size: var(--pixel13);
+      padding-right: 5px;
+
+      + a {
+        border-left: 1px solid green;
+        padding-left: 10px;
+      }
+
+      &:hover {
+        color: var(--red);
+      }
+    }
+
+    a.c-buttoncta {
+      flex: 1;
+    }
   }
-  .panel__header {
-    background-color: var(--grey);
+
+  > .b-listing > ul {
+    border-top: none !important;
+    border-bottom: none !important;
   }
 `;

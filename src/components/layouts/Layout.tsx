@@ -17,13 +17,13 @@ interface LayoutProps {
 }
 
 export const Layout: React.FC<LayoutProps> = ({
+  children,
   aside,
   AM,
   isIntranet,
   MA,
   AMA,
   sidebarTop,
-  children,
 }): JSX.Element => {
   const layoutProps = {
     aside,

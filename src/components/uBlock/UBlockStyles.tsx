@@ -1,11 +1,27 @@
 import styled from 'styled-components';
+import { greaterThan } from '../cuMediaQueries';
+
 type UBlockStylesProps = {
-  readonly backgroundColor: string;
+  readonly backgroundColor?: string;
   readonly full?: boolean;
   readonly borderTop?: boolean;
   readonly masthead?: boolean;
+  readonly panel?: boolean;
+  readonly alert?: boolean;
 };
 export const UBlockStyles = styled.section<UBlockStylesProps>`
+  padding: 30px 25px;
+
+  /* handle large screen size */
+  ${greaterThan('s')`padding: 40px 30px;`}
+
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor ? `var(--${backgroundColor})` : 'white'};
+
+  color: ${({ backgroundColor }) =>
+    backgroundColor === 'black' ? 'white' : 'inherit'};
+
+  /* handle masthead prop */
   ${({ masthead }) =>
     masthead &&
     `
@@ -17,12 +33,6 @@ export const UBlockStyles = styled.section<UBlockStylesProps>`
     background-color: white;
 
   `}
-
-  padding: 30px 25px;
-
-  @include media('>s') {
-    padding: 40px 30px;
-  }
 
   /* if full prop exists */
   ${({ full }) =>
@@ -36,26 +46,18 @@ export const UBlockStyles = styled.section<UBlockStylesProps>`
   `}
   /* if borderTop prop exists */
   ${({ borderTop }) =>
-    borderTop && `border-top: 1px solid var(--grey-vader);`}
+    borderTop &&
+    `border-top: 1px solid var(--grey-vader);
     u-block--white {
     background-color: white;
-  }
-  ${({ backgroundColor }) =>
-    backgroundColor &&
-    `
-        background-color: var(--${backgroundColor});
-        ${backgroundColor === 'black' && `color: white;`}
+    `}
 
-        `}
-  .u-block--${({ backgroundColor }) => backgroundColor} {
-    background-color: var(${({ backgroundColor }) => backgroundColor});
-    ${({ backgroundColor }) => backgroundColor === 'black' && `color: white;`}
-  }
-
-  .u-block--alert {
-    z-index: 1000;
+/* handle alert prop */
+    ${({ alert }) =>
+    alert &&
+    `z-index: 1000;
     background-color: var(--pink);
     border-bottom: 4px solid var(--red);
     position: relative;
-  }
+    `}
 `;

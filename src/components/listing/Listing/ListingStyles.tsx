@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { greaterThan } from '../../cuMediaQueries';
 
 interface ListingStylesProps {
   accordion?: boolean;
@@ -91,10 +92,11 @@ export const ListingStyles = styled.div<ListingStylesProps>`
       width: 15%;
       min-width: 70px;
 
-      @include media('>s') {
-        /* margin-right: 25px; */
-        width: 10%;
-      }
+
+      ${greaterThan('s')`
+          /* margin-right: 25px; */
+          width: 10%;
+          `}
 
       svg {
         width: 45px;
@@ -119,14 +121,13 @@ export const ListingStyles = styled.div<ListingStylesProps>`
   ${({ news }) =>
     news &&
     `
-       figure {
+    figure {
         width: 30%;
 
-
-        @include media('>s') {
-          margin-right: 30px;
-          width: 30%;
-        }
+    ${greaterThan('s')`
+        margin-right: 30px;
+        width: 30%;
+        `}
       }
    time {
     font-size: var(--pixel14);
@@ -144,36 +145,10 @@ export const ListingStyles = styled.div<ListingStylesProps>`
     text-overflow: ellipsis;
     line-height: 1.5 !important;
 
-    @include media('>s') {
-      font-size: var(--pixel20);
-    }
 
-    /* IE11 Fallback, line-clamp not supported */
-    @media screen and (-ms-high-contrast: active),
-      screen and (-ms-high-contrast: none) {
-      white-space: nowrap !important;
-    }
-  }
-
-   p {
-    display: none;
-
-    /* @include media('>1000px') { */
-    @include media('>s') {
-      display: block;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      white-space: normal !important;
-      text-overflow: ellipsis;
-    }
-
-    /* IE11 Fallback, line-clamp not supported */
-    @media screen and (-ms-high-contrast: active),
-      screen and (-ms-high-contrast: none) {
-      white-space: nowrap !important;
-    }
+    ${greaterThan('s')`
+        font-size: var(--pixel20);
+    `}
   `}
 
    /* Event variant */
@@ -189,9 +164,9 @@ export const ListingStyles = styled.div<ListingStylesProps>`
     font-size: var(--pixel12);
     line-height: 1.1;
 
-    @include media('>s') {
-      margin-right: 30px;
-    }
+    ${greaterThan('s')`
+        margin-right: 30px;
+    `}
   }
 
    time span {
@@ -202,13 +177,12 @@ export const ListingStyles = styled.div<ListingStylesProps>`
 
    time + div {
     display: none;
-
-    @include media('>s') {
-      display: flex;
-      flex: 0 0 100px;
-      flex-direction: column;
-      justify-content: center;
-    }
+    ${greaterThan('s')`
+        display: flex;
+        flex: 0 0 100px;
+        flex-direction: column;
+        justify-content: center;
+    `}
 }
 `}
 
@@ -248,17 +222,6 @@ export const ListingStyles = styled.div<ListingStylesProps>`
     img {
       opacity: 0.6;
     }
-
-     /* &:before { */
-     	/* content: ''; */
-     	/* display: block; */
-     	/* height: 100%; */
-     	/* position: absolute; */
-     	/* top: 0; */
-     	/* left: 0; */
-     	/* width: 100%; */
-     	/* background-color: rgba(black, 0.4); */
-     /* } */
   }
 
   figure svg {
