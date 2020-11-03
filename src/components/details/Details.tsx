@@ -9,51 +9,48 @@ import React from 'react';
 import { Button } from '../button/Button';
 import { DetailsStyles } from './DetailsStyles';
 
-interface DetailsProps {}
+interface DetailsProps {
+  children: React.ReactNode;
+  img?: { src: string; alt: string };
+  caption?: {
+    topText: string;
+    bottomText?: string;
+  };
+  button?: { url: string; text: string };
+}
 
-export const Details: React.FC<DetailsProps> = ({}): JSX.Element => {
+export const Details: React.FC<DetailsProps> = ({
+  children,
+  img,
+  caption,
+  button,
+}): JSX.Element => {
   return (
     <DetailsStyles>
-      <div className="b-details b-details--figure">
-        <div className="details__aside">
-          <figure>
-            <img
-              src="https://i.carleton.ca/wp-content/uploads/2016/10/danny-brown-1-1-300x300.jpg"
-              alt=""
-            />
-            <figcaption>
-              Danny Brown
-              <br />
-              Director, Enterprise Applications
-            </figcaption>
-          </figure>
-        </div>
+      <div className={`b-details ${img && 'b-details--figure'}`}>
+        {img && (
+          <div className="details__aside">
+            <figure>
+              <img src={img.src} alt={img.alt} />
+              {caption && (
+                <figcaption>
+                  {caption && caption.topText}
+                  <br />
+                  {caption && caption.bottomText}
+                </figcaption>
+              )}
+            </figure>
+          </div>
+        )}
         <div className="details__meta">
-          <dl className="u-link">
-            <dt>Phone</dt>
-            <dd>x8998</dd>
-
-            <dt>Mobile</dt>
-            <dd>613-218-7373</dd>
-
-            <dt>Email</dt>
-            <dd>
-              <a href="mailto:danny.brown@carleton.ca">
-                danny.brown@carleton.ca
-              </a>
-            </dd>
-
-            <dt>Office</dt>
-            <dd>401k RO</dd>
-
-            <dt>Pronouns</dt>
-            <dd>Him / His</dd>
-          </dl>
+          <dl className="u-link">{children}</dl>
         </div>
       </div>
-      <footer>
-        <Button title={`Edit Profile`} url="/" grey center full />
-      </footer>
+      {button && (
+        <footer>
+          <Button title={button.text} url={button.url} grey center full />
+        </footer>
+      )}
     </DetailsStyles>
   );
 };
