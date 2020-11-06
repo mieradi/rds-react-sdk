@@ -5,10 +5,10 @@ import { Details } from './components/details/Details';
 import { Listing } from './components/listing/Listing/Listing';
 import { ListItem } from './components/listing/ListItem';
 import { Masthead } from './components/masthead/Masthead';
-import { GridStyles } from './components/grid/GridStyles';
+import { Grid } from './components/grid/Grid';
 import { Banner } from './components/banner/Banner';
 import { Panel } from './components/panel/Panel';
-import { UBlockStyles } from './components/uBlock/UBlockStyles';
+import { UBlock } from './components/UBlock/UBlock';
 import { Aside } from './components/aside/Aside';
 import { Layout } from './components/layouts/Layout';
 import { Masonry } from './components/layouts/Masonry';
@@ -21,10 +21,10 @@ export {
   Listing,
   ListItem,
   Masthead,
-  GridStyles,
+  Grid,
   Banner,
   Panel,
-  UBlockStyles,
+  UBlock,
   Aside,
   Layout,
   Masonry,

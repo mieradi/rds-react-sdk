@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { greaterThan } from '../cuMediaQueries';
 
-type UBlockStylesProps = {
+type UBlockProps = {
   readonly backgroundColor?: string;
   readonly full?: boolean;
   readonly borderTop?: boolean;
@@ -9,7 +9,7 @@ type UBlockStylesProps = {
   readonly panel?: boolean;
   readonly alert?: boolean;
 };
-export const UBlockStyles = styled.section<UBlockStylesProps>`
+export const UBlock = styled.section<UBlockProps>`
   padding: 30px 25px;
 
   /* handle large screen size */

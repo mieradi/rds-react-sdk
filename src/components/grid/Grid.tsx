@@ -7,13 +7,13 @@
 import styled from 'styled-components';
 import { greaterThan } from '../cuMediaQueries';
 
-interface GridStylesProps {
+interface GridProps {
   largeGap?: boolean;
-  col?: number;
+  size?: number;
 }
-export const GridStyles = styled.div<GridStylesProps>`
+export const Grid = styled.div<GridProps>`
   display: grid;
-  grid-gap: ${({ col }) => (col === 4 ? `24px` : `var(--grid-gutter);`)};
+  grid-gap: ${({ size }) => (size === 4 ? `24px` : `var(--grid-gutter);`)};
   grid-template-columns: repeat(2, 1fr);
 
   /* handle large gap prop */
@@ -24,7 +24,7 @@ export const GridStyles = styled.div<GridStylesProps>`
     `}
 
   /* handle col prop */
-  ${({ col }) =>
-    `${greaterThan('s')`grid-template-columns: repeat(${col}, 1fr);`}
+  ${({ size }) =>
+    `${greaterThan('s')`grid-template-columns: repeat(${size}, 1fr);`}
     `}
 `;
