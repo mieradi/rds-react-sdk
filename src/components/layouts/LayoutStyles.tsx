@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { UBlockStyles } from '../uBlock/UBlockStyles';
+import { UBlock } from '../UBlock/UBlock';
 import { greaterThan, lessThan, between } from '../cuMediaQueries';
 
 interface LayoutStylesProps {
@@ -21,7 +21,7 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
   margin: 0 auto;
 
   /* Remove side padding on all u-block elements */
-  ${UBlockStyles} {
+  ${UBlock} {
     padding-left: 0;
     padding-right: 0;
   }
@@ -58,7 +58,7 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
   }
 
   .multicol__sidebar {
-    ${UBlockStyles} {
+    ${UBlock} {
       &:first-child,
       &:first-of-type {
         padding-top: 0;

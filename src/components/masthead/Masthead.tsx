@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MastheadStyles } from './MastheadStyles';
-import { UBlockStyles } from '../uBlock/UBlockStyles';
+import { UBlock } from '../UBlock/UBlock';
 // import { useWindowDimensions } from '@/customHooks/useWindowDimensions';
 
 interface MastheadProps {
@@ -57,7 +57,7 @@ export const Masthead: React.FC<MastheadProps> = ({
   }, []);
 
   return (
-    <UBlockStyles masthead borderTop full backgroundColor="white">
+    <UBlock masthead borderTop full backgroundColor="white">
       <MastheadStyles isScrollingUp={isScrollingUp}>
         <h1>
           <a href="/">
@@ -75,6 +75,6 @@ export const Masthead: React.FC<MastheadProps> = ({
           </div>
         </nav>
       </MastheadStyles>
-    </UBlockStyles>
+    </UBlock>
   );
 };

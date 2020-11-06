@@ -1,6 +1,6 @@
 import React from 'react';
 import { BannerStyles } from './BannerStyles';
-import { UBlockStyles } from '../uBlock/UBlockStyles';
+import { UBlock } from '../UBlock/UBlock';
 
 type BannerProps = {
   title?: string;
@@ -12,10 +12,10 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
   isIntranet,
 }) => {
   return (
-    <UBlockStyles backgroundColor={'grey'}>
+    <UBlock backgroundColor={'grey'}>
       <BannerStyles isIntranet={isIntranet}>
         <h1 style={{ textTransform: 'capitalize' }}>{title}</h1>
       </BannerStyles>
-    </UBlockStyles>
+    </UBlock>
   );
 };
