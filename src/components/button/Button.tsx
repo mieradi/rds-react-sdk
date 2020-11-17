@@ -18,6 +18,7 @@ interface ButtonProps {
   grey?: boolean;
   full?: boolean;
   center?: boolean;
+  isSubmit?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -29,6 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
   full,
   center,
   handleClick,
+  isSubmit,
 }): JSX.Element => {
   const buttonProps = {
     icon,
@@ -39,6 +41,8 @@ export const Button: React.FC<ButtonProps> = ({
   };
   return (
     <ButtonStyles
+      type={isSubmit ? 'submit' : 'text'}
+      className={isSubmit ? 'form__submit' : ''}
       {...(!handleClick && url && { href: url })}
       {...buttonProps}
       {...(handleClick && !url && { onClick: handleClick })}

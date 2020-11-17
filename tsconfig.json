@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+        "@/components/*": [
+            "src/components/*"
+        ],
+    },
     "outDir": "dist",
     "module": "esnext",
     "target": "es5",
