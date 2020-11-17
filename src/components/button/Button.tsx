@@ -6,9 +6,11 @@
  */
 import React from 'react';
 import { ButtonStyles } from '../button/ButtonStyles';
-// import { CUSTOMHOOK } from '@/customHooks/..';
 
 interface ButtonProps {
+  handleClick?: (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => void;
   title: string;
   url?: string;
   icon?: JSX.Element;
@@ -26,6 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
   grey,
   full,
   center,
+  handleClick,
 }): JSX.Element => {
   const buttonProps = {
     icon,
@@ -35,7 +38,11 @@ export const Button: React.FC<ButtonProps> = ({
     center,
   };
   return (
-    <ButtonStyles href={url} {...buttonProps}>
+    <ButtonStyles
+      {...(!handleClick && url && { href: url })}
+      {...buttonProps}
+      {...(handleClick && !url && { onClick: handleClick })}
+    >
       {icon && icon}
       {title}
     </ButtonStyles>

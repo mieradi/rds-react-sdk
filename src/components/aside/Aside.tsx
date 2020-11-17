@@ -2,6 +2,7 @@ import React from 'react';
 import { AsideStyles } from './AsideStyles';
 interface AsideProps {
   isIntranet?: boolean;
+  children: React.ReactNode;
 }
 export const Aside: React.FC<AsideProps> = ({
   children,
