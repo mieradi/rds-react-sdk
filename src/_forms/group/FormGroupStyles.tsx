@@ -5,10 +5,10 @@ import styled from 'styled-components';
  * @param {} param desc
  * @returns returns desc
  */
+import { FormDescriptionStyles } from '@/components/_forms/description/FormDescriptionStyles';
+interface FormGroupStylesProps {}
 
-import { FormDescriptionStyles } from '@/components/forms/description/FormDescriptionStyles';
-
-export const FormGroupStyles = styled.div`
+export const FormGroupStyles = styled.div<FormGroupStylesProps>`
   margin-top: -10px;
 
   & + ${FormDescriptionStyles} {

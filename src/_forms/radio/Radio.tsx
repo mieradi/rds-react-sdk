@@ -1,35 +1,36 @@
 /**
- * @name CheckBox
+ * @name Radio
  * @desc description here
  * @param {} param desc
  * @returns returns desc
  */
+
 //! needs to handle onChange
 import React from 'react';
-import { CheckBoxStyles } from '@/components/forms/checkbox/CheckBoxStyles';
-import { FormDescription } from '@/components/forms/description/FormDescription';
-import { FormGroupStyles } from '@/components/forms/group/FormGroupStyles';
+import { RadioStyles } from '@/components/_forms/radio/RadioStyles';
+import { FormDescription } from '@/components/_forms/description/FormDescription';
+import { FormGroupStyles } from '@/components/_forms/group/FormGroupStyles';
 
-interface CheckBoxProps {
+interface RadioProps {
   description?: String;
   legend?: String;
   isGroup?: boolean;
   children: React.ReactNode;
 }
 
-export const CheckBox: React.FC<CheckBoxProps> = ({
+export const Radio: React.FC<RadioProps> = ({
   children,
   description,
   legend,
   isGroup,
 }): JSX.Element => {
   return (
-    <CheckBoxStyles>
+    <RadioStyles>
       <fieldset>
         {legend && <legend>{legend}</legend>}
         {description && <FormDescription description={description} />}
         {isGroup ? <FormGroupStyles>{children}</FormGroupStyles> : children}
       </fieldset>
-    </CheckBoxStyles>
+    </RadioStyles>
   );
 };

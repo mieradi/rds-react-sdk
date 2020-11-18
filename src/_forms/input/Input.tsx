@@ -4,7 +4,6 @@
  * @param {} param desc
  * @returns returns desc
  */
-
 import React from 'react';
 interface InputProps {
   handleOnChange(event: React.FormEvent<HTMLInputElement>): void;

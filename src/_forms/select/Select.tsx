@@ -4,9 +4,8 @@
  * @param {} param desc
  * @returns returns desc
  */
-
 import React from 'react';
-import { SelectStyles } from '@/components/forms/select/SelectStyles';
+import { SelectStyles } from '@/components/_forms/select/SelectStyles';
 
 interface SelectProps {
   handleOnChange(event: React.FormEvent<HTMLDivElement>): void;

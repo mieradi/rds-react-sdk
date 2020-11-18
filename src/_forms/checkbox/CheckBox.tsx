@@ -4,11 +4,12 @@
  * @param {} param desc
  * @returns returns desc
  */
+
 //! needs to handle onChange
 import React from 'react';
-import { CheckBoxStyles } from '@/components/forms/checkbox/CheckBoxStyles';
-import { FormDescription } from '@/components/forms/description/FormDescription';
-import { FormGroupStyles } from '@/components/forms/group/FormGroupStyles';
+import { CheckBoxStyles } from './CheckBoxStyles';
+import { FormDescription } from '@/components/_forms/description/FormDescription';
+import { FormGroupStyles } from '@/components/_forms/group/FormGroupStyles';
 
 interface CheckBoxProps {
   description?: String;

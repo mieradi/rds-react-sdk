@@ -4,10 +4,9 @@
  * @param {} param desc
  * @returns returns desc
  */
-
 import React from 'react';
 import { UBlock } from '@/components/UBlock/UBlock';
-import { FormStyles } from '@/components/forms/form/FormStyles';
+import { FormStyles } from '@/components/_forms/form/FormStyles';
 
 interface FormProps {
   children: React.ReactNode;

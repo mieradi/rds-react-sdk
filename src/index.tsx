@@ -28,6 +28,7 @@ import { SubmitButton } from '@/components/forms/submitButton/SubmitButton';
 import { FormSuccess } from '@/components/forms/success/FormSuccess';
 import { TextArea } from '@/components/forms/textarea/TextArea';
 import { FormWarning } from '@/components/forms/warning/FormWarning';
+import { SVG } from './icons/base/SVG';
 
 export {
   Button,
@@ -59,4 +60,5 @@ export {
   FormSuccess,
   TextArea,
   FormWarning,
+  SVG,
 };

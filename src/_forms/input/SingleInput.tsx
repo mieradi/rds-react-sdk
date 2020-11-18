@@ -4,10 +4,9 @@
  * @param {} param desc
  * @returns returns desc
  */
-
 import React from 'react';
-import { FormDescription } from '@/components/forms/description/FormDescription';
-import { InputStyles } from '@/components/forms/input/InputStyles';
+import { FormDescription } from '@/components/_forms/description/FormDescription';
+import { InputStyles } from '@/components/_forms/input/InputStyles';
 
 interface SingleInputProps {
   handleOnChange(event: React.FormEvent<HTMLInputElement>): void;
@@ -25,11 +24,10 @@ export const SingleInput: React.FC<SingleInputProps> = ({
   description,
 }): JSX.Element => {
   return (
-    <InputStyles>
+    <InputStyles {...(handleOnChange && { onChange: handleOnChange })}>
       {label && <label htmlFor="text">{label}</label>}
       {description && <FormDescription description={description} />}
       <input
-        {...(handleOnChange && { onChange: handleOnChange })}
         id={inputType}
         type={inputType}
         name={inputType}

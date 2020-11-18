@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+
 // RadioStyles extends this declaration
 export const CheckBoxStyles = styled.div`
   label {

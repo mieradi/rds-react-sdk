@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 /**
- * @name FormDescription
+ * @name FormDescriptionStyles
  * @desc description here
  * @param {} param desc
  * @returns returns desc
  */
 
+// import { FileUploadStyles } from '../file/FileUploadStyles';
 interface FormDescriptionStylesProps {}
 
 export const FormDescriptionStyles = styled.p<FormDescriptionStylesProps>`
