@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { FormMessageStyles } from '@/components/_forms/message/FormMessageStyles';
+import { FormMessageStyles } from 'src/_forms/message/FormMessageStyles';
 
 interface FormMessageProps {
   message: String;

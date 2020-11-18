@@ -5,8 +5,8 @@
  * @returns returns desc
  */
 import React from 'react';
-import { TextAreaStyles } from '@/components/_forms/textarea/TextAreaStyles';
-import { FormDescription } from '@/components/_forms/description/FormDescription';
+import { TextAreaStyles } from 'src/_forms/textarea/TextAreaStyles';
+import { FormDescription } from 'src/_forms/description/FormDescription';
 
 interface TextAreaProps {
   handleOnChange(event: React.FormEvent<HTMLTextAreaElement>): void;

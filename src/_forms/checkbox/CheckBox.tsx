@@ -8,8 +8,8 @@
 //! needs to handle onChange
 import React from 'react';
 import { CheckBoxStyles } from './CheckBoxStyles';
-import { FormDescription } from '@/components/_forms/description/FormDescription';
-import { FormGroupStyles } from '@/components/_forms/group/FormGroupStyles';
+import { FormDescription } from 'src/_forms/description/FormDescription';
+import { FormGroupStyles } from 'src/_forms/group/FormGroupStyles';
 
 interface CheckBoxProps {
   description?: String;

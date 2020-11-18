@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { UBlock } from '@/components/UBlock/UBlock';
-import { FormStyles } from '@/components/_forms/form/FormStyles';
+import { FormStyles } from 'src/_forms/form/FormStyles';
 
 interface FormProps {
   children: React.ReactNode;

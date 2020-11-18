@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { FormWarningStyles } from '@/components/_forms/warning/FormWarningStyles';
+import { FormWarningStyles } from 'src/_forms/warning/FormWarningStyles';
 
 interface FormWarningProps {
   message: String;

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { FileUploadStyles } from '@/components/_forms/file/FileUploadStyles';
+import { FileUploadStyles } from 'src/_forms/file/FileUploadStyles';
 
 interface FileUploadProps {
   label?: String;

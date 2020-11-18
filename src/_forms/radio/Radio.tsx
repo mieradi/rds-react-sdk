@@ -7,9 +7,9 @@
 
 //! needs to handle onChange
 import React from 'react';
-import { RadioStyles } from '@/components/_forms/radio/RadioStyles';
-import { FormDescription } from '@/components/_forms/description/FormDescription';
-import { FormGroupStyles } from '@/components/_forms/group/FormGroupStyles';
+import { RadioStyles } from 'src/_forms/radio/RadioStyles';
+import { FormDescription } from 'src/_forms/description/FormDescription';
+import { FormGroupStyles } from 'src/_forms/group/FormGroupStyles';
 
 interface RadioProps {
   description?: String;

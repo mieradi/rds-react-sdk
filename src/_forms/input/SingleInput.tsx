@@ -5,8 +5,8 @@
  * @returns returns desc
  */
 import React from 'react';
-import { FormDescription } from '@/components/_forms/description/FormDescription';
-import { InputStyles } from '@/components/_forms/input/InputStyles';
+import { FormDescription } from 'src/_forms/description/FormDescription';
+import { InputStyles } from 'src/_forms/input/InputStyles';
 
 interface SingleInputProps {
   handleOnChange(event: React.FormEvent<HTMLInputElement>): void;

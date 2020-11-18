@@ -5,7 +5,7 @@ import styled from 'styled-components';
  * @param {} param desc
  * @returns returns desc
  */
-import { FormDescriptionStyles } from '@/components/_forms/description/FormDescriptionStyles';
+import { FormDescriptionStyles } from 'src/_forms/description/FormDescriptionStyles';
 interface FormGroupStylesProps {}
 
 export const FormGroupStyles = styled.div<FormGroupStylesProps>`

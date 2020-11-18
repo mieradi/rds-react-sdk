@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { FormMessageStyles } from '@/components/_forms/message/FormMessageStyles';
+import { FormMessageStyles } from 'src/_forms/message/FormMessageStyles';
 
 interface FormSuccessStylesProps {}
 

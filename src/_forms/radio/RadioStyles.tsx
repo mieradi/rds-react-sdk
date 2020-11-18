@@ -6,7 +6,7 @@ import styled from 'styled-components';
  * @returns returns desc
  */
 
-import { CheckBoxStyles } from '@/components/_forms/checkbox/CheckBoxStyles';
+import { CheckBoxStyles } from 'src/_forms/checkbox/CheckBoxStyles';
 
 export const RadioStyles = styled(CheckBoxStyles)`
   label::before {
