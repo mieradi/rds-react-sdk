@@ -30,6 +30,7 @@ import { TextArea } from '@/components/forms/textarea/TextArea';
 import { FormWarning } from '@/components/forms/warning/FormWarning';
 import { Search } from '@/components/search/Search';
 import { SVG } from './icons/base/SVG';
+import { Modal } from '@/components/modal/Modal';
 
 export {
   Button,
@@ -63,5 +64,5 @@ export {
   FormWarning,
   SVG,
   Search,
-  w,
+  Modal,
 };
