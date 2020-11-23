@@ -4,10 +4,8 @@
  * @param {} param desc
  * @returns returns desc
  */
-
 import React from 'react';
-import { Button } from '../button/Button';
-import { DetailsStyles } from './DetailsStyles';
+import { DetailsStyles } from '@/components/details/DetailsStyles';
 
 interface DetailsProps {
   children: React.ReactNode;
@@ -16,14 +14,12 @@ interface DetailsProps {
     topText: string;
     bottomText?: string;
   };
-  button?: { url: string; text: string };
 }
 
 export const Details: React.FC<DetailsProps> = ({
   children,
   img,
   caption,
-  button,
 }): JSX.Element => {
   return (
     <DetailsStyles>
@@ -46,11 +42,6 @@ export const Details: React.FC<DetailsProps> = ({
           <dl className="u-link">{children}</dl>
         </div>
       </div>
-      {button && (
-        <footer>
-          <Button title={button.text} url={button.url} grey center full />
-        </footer>
-      )}
     </DetailsStyles>
   );
 };
