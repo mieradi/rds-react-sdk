@@ -11,10 +11,16 @@ interface SVGStylesProps {
   fill?: string;
   hoverColor?: string;
   isActive?: boolean;
+  isClickable?: boolean;
 }
 
 export const SVGStyles = styled(SVGBase)<SVGStylesProps>`
   fill: ${({ fill }) => (fill ? fill : 'var(--black)')};
+  ${({ isClickable }) =>
+    isClickable &&
+    `
+    cursor: pointer;
+  `}
 
   &:hover {
     fill: ${({ hoverColor }) => (hoverColor ? hoverColor : 'inherit')};

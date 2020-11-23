@@ -15,6 +15,7 @@ interface SVGProps {
   width?: string;
   hoverColor?: string;
   isActive?: boolean;
+  isClickable?: boolean;
 }
 
 export const SVG: React.FC<SVGProps> = ({
@@ -23,6 +24,7 @@ export const SVG: React.FC<SVGProps> = ({
   hoverColor,
   isActive,
   handleClick,
+  isClickable,
   children,
 }): JSX.Element => {
   return (
@@ -31,6 +33,7 @@ export const SVG: React.FC<SVGProps> = ({
       fill={fill}
       hoverColor={hoverColor}
       isActive={isActive}
+      isClickable={isClickable}
       {...(handleClick && { onClick: handleClick })}
     >
       {children}
