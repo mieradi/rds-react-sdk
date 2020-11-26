@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 interface PanelStylesProps {
   size?: string | number;
+  hasSubmenu: boolean;
 }
 
 export const PanelStyles = styled.section<PanelStylesProps>`
@@ -39,18 +40,17 @@ export const PanelStyles = styled.section<PanelStylesProps>`
 
     button {
       position: absolute;
-      top: 0;
+      top: -8px;
       right: 20px;
+      svg {
+        width: 20px;
+      }
     }
 
-    span {
+    /* span {
       position: absolute;
       left: -9999px;
-    }
-
-    svg {
-      width: 20px;
-    }
+    } */
   }
 
   footer {
