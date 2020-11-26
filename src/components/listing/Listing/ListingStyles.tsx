@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { greaterThan } from '../../cuMediaQueries';
+import { greaterThan } from '@/components/cuMediaQueries';
+import { ButtonStyles } from '@/components/button/ButtonStyles';
 
 interface ListingStylesProps {
   accordion?: boolean;
@@ -8,6 +9,8 @@ interface ListingStylesProps {
   people?: boolean;
   icon?: boolean;
   video?: boolean;
+  noLink?: boolean;
+  noHover?: boolean;
 }
 export const ListingStyles = styled.div<ListingStylesProps>`
   /**
@@ -15,7 +18,7 @@ export const ListingStyles = styled.div<ListingStylesProps>`
  * =============
  */
 
-  + .c-buttoncta {
+  + ${ButtonStyles} {
     margin-top: var(--block-padding-m);
   }
 
@@ -34,6 +37,29 @@ export const ListingStyles = styled.div<ListingStylesProps>`
     }
   }
 
+  ${({ noLink }) =>
+    !noLink &&
+    `
+    li{
+        background-size: 12px;
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cpath fill='none' stroke='%23535353' stroke-linecap='round' stroke-linejoin='round' stroke-width='18' d='M37 118l54-54-54-54'/%3E%3C/svg%3E");
+    }
+    `};
+
+  ${({ noHover }) =>
+    noHover &&
+    `
+        &:hover {
+        background-color: var(--grey);
+
+        h3,
+        h4 {
+            color: var(--red);
+        }
+    `}
+
   ${({ accordion }) =>
     !accordion &&
     `
@@ -42,24 +68,14 @@ export const ListingStyles = styled.div<ListingStylesProps>`
       align-items: center;
       min-height: 60px;
       padding: 10px 50px 10px 0;
-      background-size: 12px;
-      background-position: right 15px center;
-      background-repeat: no-repeat;
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cpath fill='none' stroke='%23535353' stroke-linecap='round' stroke-linejoin='round' stroke-width='18' d='M37 118l54-54-54-54'/%3E%3C/svg%3E");
+
 
       h3,
       h4 {
         color: var(--link);
       }
-
-      &:hover {
-        background-color: var(--grey);
-
-        h3,
-        h4 {
-          color: var(--red);
-        }
-      }
+    }
+    }
     }
 
     header {
@@ -252,14 +268,12 @@ ${({ accordion }) =>
    figure {
     width: initial;
   }
-`}
-
-   /* Grey Block */
+`} /* Grey Block */
   /* =========== */
 
-  .u-block--grey {
+  /* .u-block--grey {
     .b-listing a:hover {
       background-color: var(--grey-yoda);
     }
-  }
+  } */
 `;

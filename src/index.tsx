@@ -29,9 +29,10 @@ import { FormSuccess } from '@/components/forms/success/FormSuccess';
 import { TextArea } from '@/components/forms/textarea/TextArea';
 import { FormWarning } from '@/components/forms/warning/FormWarning';
 import { Search } from '@/components/search/Search';
-import { SVG } from './icons/base/SVG';
 import { Modal } from '@/components/modal/Modal';
+import { Toast } from '@/components/toast/Toast';
 
+import { SVG } from '@/icons/base/SVG';
 export {
   Button,
   Card,
@@ -65,4 +66,5 @@ export {
   SVG,
   Search,
   Modal,
+  Toast,
 };
