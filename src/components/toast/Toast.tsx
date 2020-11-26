@@ -15,7 +15,7 @@ import {
 import { SVG } from '@/icons/base/SVG';
 
 interface ToastObjectProps {
-  id: number;
+  id: string;
   type: string;
   title: string;
   message?: string;
