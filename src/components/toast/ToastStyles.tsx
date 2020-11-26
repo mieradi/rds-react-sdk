@@ -44,6 +44,7 @@ export const ToastStyles = styled.div<ToastStylesProps>`
   border: 1px solid
     ${({ type }: { type: string }) => handleToastType(type).border};
   width: fit-content;
+  min-width: 400px;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: var(--ds-y);
