@@ -31,6 +31,7 @@ import { FormWarning } from '@/components/forms/warning/FormWarning';
 import { Search } from '@/components/search/Search';
 import { Modal } from '@/components/modal/Modal';
 import { Toast } from '@/components/toast/Toast';
+import { SubMenu } from '@/components/submenu/SubMenu';
 
 import { SVG } from '@/icons/base/SVG';
 export {
@@ -67,4 +68,5 @@ export {
   Search,
   Modal,
   Toast,
+  SubMenu,
 };
