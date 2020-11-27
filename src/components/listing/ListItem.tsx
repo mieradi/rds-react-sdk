@@ -1,11 +1,12 @@
 import React from 'react';
 interface ListItemProps {
   heading: string;
-  url: string;
+  url?: string;
   description?: string;
   imageSrc?: string;
   icon?: JSX.Element;
-  badge?: string;
+  badge?: JSX.Element;
+  date?: string;
 }
 export const ListItem: React.FC<ListItemProps> = ({
   heading,
@@ -14,11 +15,11 @@ export const ListItem: React.FC<ListItemProps> = ({
   imageSrc,
   icon,
   badge,
+  date,
 }): JSX.Element => {
   return (
     <li itemProp="item">
       <a href={url} itemProp="url">
-        {imageSrc && icon && <p>You cannot add an image and an icon</p>}
         {imageSrc && !icon && (
           <figure>
             <img src={imageSrc} itemProp="image" />
@@ -26,10 +27,15 @@ export const ListItem: React.FC<ListItemProps> = ({
         )}
         {icon && !imageSrc && <figure>{icon}</figure>}
         <header itemProp="name">
+          {date && (
+            <time dateTime={date} itemProp="datePublished">
+              {date}
+            </time>
+          )}
           <h3>{heading}</h3>
           {description && <p itemProp="description">{description}</p>}
         </header>
-        {badge && <span className="c-badge">{badge}</span>}
+        {badge && <span>{badge}</span>}
       </a>
     </li>
   );
