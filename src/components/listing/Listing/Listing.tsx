@@ -10,6 +10,8 @@ interface ListingProps {
   people?: boolean;
   icon?: boolean;
   video?: boolean;
+  noLink?: boolean;
+  noHover?: boolean;
 }
 
 export const Listing: React.FC<ListingProps> = ({
@@ -21,6 +23,8 @@ export const Listing: React.FC<ListingProps> = ({
   people,
   icon,
   video,
+  noLink,
+  noHover,
 }): JSX.Element => {
   const styleProps = {
     accordion,
@@ -29,13 +33,14 @@ export const Listing: React.FC<ListingProps> = ({
     people,
     icon,
     video,
+    noLink,
+    noHover,
   };
   return (
     <>
-      {heading && <h2 className="c-heading u-no-border">{heading}</h2>}
+      {heading && <h2>{heading}</h2>}
       <ListingStyles {...styleProps}>
         <ul itemScope itemType="http://schema.org/ItemList">
-          {/* only render li > * here */}
           {children}
         </ul>
       </ListingStyles>
