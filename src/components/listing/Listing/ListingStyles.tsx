@@ -27,7 +27,9 @@ export const ListingStyles = styled.div<ListingStylesProps>`
     margin: 0;
     border-top: 1px solid var(--grey-yoda);
     border-bottom: 1px solid var(--grey-yoda);
-
+    li a {
+      cursor: default;
+    }
     & > li {
       position: relative;
 
@@ -40,25 +42,17 @@ export const ListingStyles = styled.div<ListingStylesProps>`
   ${({ noLink }) =>
     !noLink &&
     `
+    li a {
+        cursor: pointer !important;
+    }
     li{
         background-size: 12px;
         background-position: right 15px center;
         background-repeat: no-repeat;
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cpath fill='none' stroke='%23535353' stroke-linecap='round' stroke-linejoin='round' stroke-width='18' d='M37 118l54-54-54-54'/%3E%3C/svg%3E");
+
     }
     `};
-
-  ${({ noHover }) =>
-    noHover &&
-    `
-        &:hover {
-        background-color: var(--grey);
-
-        h3,
-        h4 {
-            color: var(--red);
-        }
-    `}
 
   ${({ accordion }) =>
     !accordion &&
@@ -75,8 +69,9 @@ export const ListingStyles = styled.div<ListingStylesProps>`
         color: var(--link);
       }
     }
+
     }
-    }
+
 
     header {
       flex: 1;
@@ -129,6 +124,20 @@ export const ListingStyles = styled.div<ListingStylesProps>`
 }
 `}
 
+  ${({ noHover }) =>
+    !noHover &&
+    `li:hover {
+        a {
+            cursor: pointer;
+        }
+        background-color: var(--grey);
+        h3,
+        h4 {
+            color: var(--red);
+        }
+        }
+    `}
+
   /* End .b-listing */
 
    /* News variant */
@@ -165,6 +174,7 @@ export const ListingStyles = styled.div<ListingStylesProps>`
     ${greaterThan('s')`
         font-size: var(--pixel20);
     `}
+
   `}
 
    /* Event variant */
