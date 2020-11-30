@@ -1,16 +1,24 @@
 import styled from 'styled-components';
-import { greaterThan } from '../cuMediaQueries';
+import { greaterThan } from '@/components/cuMediaQueries';
+import { ButtonStyles } from '@/components/button/ButtonStyles';
+import { SearchStyles } from '@/components/search/SearchStyles';
 
 interface BannerStylesProps {
   withImage?: boolean;
   isIntranet?: boolean;
+  imagePosition?: string;
+  imageSrc?: string;
+  wide?: boolean;
+  backgroundShade?: 'light' | 'dark';
+  backgroundPosition?: 'top' | 'bottom';
 }
 export const BannerStyles = styled.div<BannerStylesProps>`
   /* Pulls grey rows up when directly after banner */
-  .has-banner + main > .u-block-row-grey:first-of-type {
+  /* .has-banner + main > .u-block-row-grey:first-of-type {
     padding-top: 0;
-  }
+  } */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 20px 0;
   text-align: center;
@@ -23,6 +31,13 @@ export const BannerStyles = styled.div<BannerStylesProps>`
     width: 100%;
   }
 
+  h1,
+  h2,
+  p {
+    z-index: 99;
+    color: ${({ backgroundShade }) =>
+      backgroundShade === 'dark' ? 'white' : 'var(--black)'};
+  }
   /* Heading */
   h1,
   h2 {
@@ -71,18 +86,17 @@ export const BannerStyles = styled.div<BannerStylesProps>`
     margin-bottom: 0;
   }
 
-  .c-buttoncta,
-  a.c-buttoncta {
+  ${ButtonStyles} {
     margin: 10px 5px 0 5px;
   }
 
-  .c-searchform {
+  ${SearchStyles} {
     width: 100%;
     margin-top: var(--block-padding-s);
 
     ${greaterThan('s')`
         margin-top: var(--block-padding-m);
-        `}
+    `}
   }
 
   /* End b-banner */
@@ -91,9 +105,10 @@ export const BannerStyles = styled.div<BannerStylesProps>`
  * Banner Image Modifier
 * =======================================
  */
-  ${({ withImage }) =>
-    withImage &&
+  ${({ imageSrc }) =>
+    imageSrc &&
     `
+    background: url(${imageSrc});
     position: relative;
     background-size: cover;
     background-position: center center;
@@ -108,6 +123,7 @@ export const BannerStyles = styled.div<BannerStylesProps>`
       content: '';
       background-color: rgba(0, 0, 0, 0.6);
     }
+
 
     ${greaterThan('s')`
         font-size: $pixel36;
@@ -136,35 +152,26 @@ export const BannerStyles = styled.div<BannerStylesProps>`
       }
     }
 `}
-  /*
- * Banner Image Opacity Modifier
- * =======================================
- */
 
-  .b-banner--img-light:after,
-  .b-wideimage--light:after {
-    background-color: rgba(0, 0, 0, 0.35);
-  }
-
-  .b-banner--img-dark:after,
-  .b-wideimage--dark:after {
-    background-color: rgba(0, 0, 0, 0.75);
-  }
+  ${({ imageSrc, backgroundShade }) =>
+    imageSrc &&
+    backgroundShade &&
+    `
+  background-color:
+    ${backgroundShade} === 'light'
+      ? 'rgba(0, 0, 0, 0.35) '
+      : 'rgba(0, 0, 0, 0.75)'};
+`}
 
   /*
  * Banner Image Position Modifier
  * =======================================
  */
-
-  .b-banner--img-top,
-  .b-wideimage--top {
-    background-position: center top;
-  }
-
-  .b-banner--img-bottom,
-  .b-wideimage--bottom {
-    background-position: center bottom;
-  }
+  ${({ backgroundPosition }) =>
+    backgroundPosition &&
+    `background-position: ${
+      backgroundPosition === 'bottom' ? 'bottom' : 'top'
+    }`}
 
   ${({ isIntranet }) =>
     isIntranet &&

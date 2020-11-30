@@ -4,10 +4,11 @@
  * @param {} param desc
  * @returns returns desc
  */
-import React from 'react';
-import { ButtonStyles } from '../button/ButtonStyles';
 
-interface ButtonProps {
+import React from 'react';
+import { ButtonStyles } from '@/components/button/ButtonStyles';
+
+export interface ButtonProps {
   handleClick?: (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => void;
