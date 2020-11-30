@@ -6,10 +6,9 @@ import { Button, ButtonProps } from '@/components/button/Button';
 type BannerProps = {
   title?: string;
   isIntranet?: boolean;
-  imageSrc?: string;
   buttons?: ButtonProps[];
-  imagePosition?: string;
   wide?: boolean;
+  imageSrc?: string;
   backgroundShade?: 'light' | 'dark';
   backgroundPosition?: 'top' | 'bottom';
 };
@@ -18,7 +17,6 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
   title,
   isIntranet,
   buttons,
-  imagePosition,
   wide,
   imageSrc,
   backgroundPosition,
@@ -28,7 +26,6 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
     <UBlock backgroundColor={'grey'}>
       <BannerStyles
         wide={wide}
-        imagePosition={imagePosition}
         isIntranet={isIntranet}
         imageSrc={imageSrc}
         backgroundPosition={backgroundPosition}

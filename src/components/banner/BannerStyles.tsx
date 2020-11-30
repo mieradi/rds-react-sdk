@@ -6,9 +6,8 @@ import { SearchStyles } from '@/components/search/SearchStyles';
 interface BannerStylesProps {
   withImage?: boolean;
   isIntranet?: boolean;
-  imagePosition?: string;
-  imageSrc?: string;
   wide?: boolean;
+  imageSrc?: string;
   backgroundShade?: 'light' | 'dark';
   backgroundPosition?: 'top' | 'bottom';
 }
