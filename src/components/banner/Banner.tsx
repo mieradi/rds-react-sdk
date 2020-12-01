@@ -9,6 +9,7 @@ type BannerProps = {
   buttons?: ButtonProps[];
   imageSrc?: string;
   backgroundShade?: 'light' | 'dark';
+  textShade?: 'light' | 'dark';
   backgroundPosition?: 'top' | 'bottom';
 };
 
@@ -19,6 +20,7 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
   imageSrc,
   backgroundPosition,
   backgroundShade,
+  textShade,
 }) => {
   return (
     <UBlock backgroundColor={'grey'}>
@@ -27,6 +29,7 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
         imageSrc={imageSrc}
         backgroundPosition={backgroundPosition}
         backgroundShade={backgroundShade}
+        textShade={textShade}
       >
         <h1 style={{ textTransform: 'capitalize' }}>{title}</h1>
 

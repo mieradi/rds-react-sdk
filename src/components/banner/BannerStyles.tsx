@@ -7,6 +7,7 @@ interface BannerStylesProps {
   isIntranet?: boolean;
   imageSrc?: string;
   backgroundShade?: 'light' | 'dark';
+  textShade?: 'light' | 'dark';
   backgroundPosition?: 'top' | 'bottom';
 }
 export const BannerStyles = styled.div<BannerStylesProps>`
@@ -32,10 +33,8 @@ export const BannerStyles = styled.div<BannerStylesProps>`
   h2,
   p {
     z-index: 99;
-    color: ${({ backgroundShade }) =>
-      backgroundShade === 'dark' || !backgroundShade
-        ? 'white'
-        : 'var(--black)'};
+    color: ${({ textShade }) =>
+      textShade === 'light' || !textShade ? 'var(--black)' : 'white'};
   }
   /* Heading */
   h1,
