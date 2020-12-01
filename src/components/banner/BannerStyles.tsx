@@ -35,6 +35,12 @@ export const BannerStyles = styled.div<BannerStylesProps>`
     z-index: 99;
     color: ${({ textShade }) =>
       textShade === 'dark' || !textShade ? 'var(--black)' : 'white'};
+
+    ${({ backgroundShade }) =>
+      backgroundShade === 'dark' &&
+      `
+      color: white !important;
+      `};
   }
   /* Heading */
   h1,
