@@ -4,9 +4,7 @@ import { ButtonStyles } from '@/components/button/ButtonStyles';
 import { SearchStyles } from '@/components/search/SearchStyles';
 
 interface BannerStylesProps {
-  withImage?: boolean;
   isIntranet?: boolean;
-  wide?: boolean;
   imageSrc?: string;
   backgroundShade?: 'light' | 'dark';
   backgroundPosition?: 'top' | 'bottom';
@@ -35,7 +33,9 @@ export const BannerStyles = styled.div<BannerStylesProps>`
   p {
     z-index: 99;
     color: ${({ backgroundShade }) =>
-      backgroundShade === 'dark' ? 'white' : 'var(--black)'};
+      backgroundShade === 'dark' || !backgroundShade
+        ? 'white'
+        : 'var(--black)'};
   }
   /* Heading */
   h1,
@@ -104,13 +104,15 @@ export const BannerStyles = styled.div<BannerStylesProps>`
  * Banner Image Modifier
 * =======================================
  */
-  ${({ imageSrc }) =>
+  ${({ imageSrc, backgroundShade, backgroundPosition }) =>
     imageSrc &&
     `
     background: url(${imageSrc});
     position: relative;
     background-size: cover;
-    background-position: center center;
+    background-position: center ${
+      backgroundPosition ? backgroundPosition : 'center'
+    };
     padding: 40px;
 
     &:after {
@@ -120,7 +122,17 @@ export const BannerStyles = styled.div<BannerStylesProps>`
       top: 0;
       left: 0;
       content: '';
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color:rgba(0, 0, 0, 0.6);
+      ${
+        backgroundShade &&
+        `
+      background-color: ${
+        backgroundShade === 'light'
+          ? 'rgba(0, 0, 0, 0.3)'
+          : 'rgba(0, 0, 0, 0.75)'
+      } !important
+      `
+      }
     }
 
 
@@ -151,26 +163,6 @@ export const BannerStyles = styled.div<BannerStylesProps>`
       }
     }
 `}
-
-  ${({ imageSrc, backgroundShade }) =>
-    imageSrc &&
-    backgroundShade &&
-    `
-  background-color:
-    ${backgroundShade} === 'light'
-      ? 'rgba(0, 0, 0, 0.35) '
-      : 'rgba(0, 0, 0, 0.75)'};
-`}
-
-  /*
- * Banner Image Position Modifier
- * =======================================
- */
-  ${({ backgroundPosition }) =>
-    backgroundPosition &&
-    `background-position: ${
-      backgroundPosition === 'bottom' ? 'bottom' : 'top'
-    }`}
 
   ${({ isIntranet }) =>
     isIntranet &&

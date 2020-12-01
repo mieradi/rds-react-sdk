@@ -7,7 +7,6 @@ type BannerProps = {
   title?: string;
   isIntranet?: boolean;
   buttons?: ButtonProps[];
-  wide?: boolean;
   imageSrc?: string;
   backgroundShade?: 'light' | 'dark';
   backgroundPosition?: 'top' | 'bottom';
@@ -17,7 +16,6 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
   title,
   isIntranet,
   buttons,
-  wide,
   imageSrc,
   backgroundPosition,
   backgroundShade,
@@ -25,7 +23,6 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
   return (
     <UBlock backgroundColor={'grey'}>
       <BannerStyles
-        wide={wide}
         isIntranet={isIntranet}
         imageSrc={imageSrc}
         backgroundPosition={backgroundPosition}
