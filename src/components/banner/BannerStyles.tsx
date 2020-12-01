@@ -172,20 +172,24 @@ export const BannerStyles = styled.div<BannerStylesProps>`
   ${({ isIntranet }) =>
     isIntranet &&
     `
-    margin-top: 0;
+    margin-top: 100px !important;
 	margin-bottom: 0;
 	display: block;
 	text-align: left;
     padding: 0 25px !important;
-    max-width: 1024px;
-    margin: 0 auto;
+    width: 100%;
+    section {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
     ${greaterThan('ll')`
         padding: 0 !important;
     `}
 	h1 {
 		margin: 0;
 		padding:0;
-		font-size:15px
+		font-size:15px;
+
 	}
   `}
 `;

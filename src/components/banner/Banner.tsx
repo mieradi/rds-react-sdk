@@ -23,7 +23,7 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
   textShade,
 }) => {
   return (
-    <UBlock backgroundColor={'grey'}>
+    <UBlock backgroundColor={'grey'} full>
       <BannerStyles
         isIntranet={isIntranet}
         imageSrc={imageSrc}
@@ -31,15 +31,17 @@ export const Banner: React.FunctionComponent<BannerProps> = ({
         backgroundShade={backgroundShade}
         textShade={textShade}
       >
-        <h1 style={{ textTransform: 'capitalize' }}>{title}</h1>
+        <section>
+          <h1 style={{ textTransform: 'capitalize' }}>{title}</h1>
 
-        {buttons && (
-          <p>
-            {buttons.map((button, i) => (
-              <Button key={`button-${i}`} {...button} />
-            ))}
-          </p>
-        )}
+          {buttons && (
+            <p>
+              {buttons.map((button, i) => (
+                <Button key={`button-${i}`} {...button} />
+              ))}
+            </p>
+          )}
+        </section>
       </BannerStyles>
     </UBlock>
   );
