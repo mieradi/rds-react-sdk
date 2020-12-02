@@ -47,13 +47,13 @@ export const Layout: React.FC<LayoutProps> = ({
         handleThrowError('AMA Layout must return a secondaryAside.')}
       {/* AM: aside/main layout */}
       {AM && !MA && primaryAside}
-      {AM && !MA && children}
+      {AM && !MA && <div>{children}</div>}
       {/* MA: main/aside layout */}
-      {MA && !AM && children}
+      {MA && !AM && <div>{children}</div>}
       {MA && !AM && primaryAside}
       {/* AMA: aside/main/aside layout */}
       {AMA && !AM && !MA && primaryAside}
-      {AMA && !AM && !MA && children}
+      {AMA && !AM && !MA && <div>{children}</div>}
       {AMA && !AM && !MA && secondaryAside}
     </LayoutStyles>
   );
