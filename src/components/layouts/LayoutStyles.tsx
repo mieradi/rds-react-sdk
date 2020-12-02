@@ -1,13 +1,12 @@
 import styled from 'styled-components';
-import { UBlock } from '../UBlock/UBlock';
-import { greaterThan, lessThan, between } from '../cuMediaQueries';
+import { UBlock } from '@/components/UBlock/UBlock';
+import { greaterThan, between } from '@/components/cuMediaQueries';
 
 interface LayoutStylesProps {
   AM?: boolean;
   isIntranet?: boolean;
   MA?: boolean;
   AMA?: boolean;
-  sidebarTop?: boolean;
 }
 export const LayoutStyles = styled.div<LayoutStylesProps>`
   /**
@@ -15,7 +14,7 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
  */
 
   display: grid;
-  grid-template-columns: 1;
+  /* grid-template-columns: 1; */
   grid-gap: var(--grid-gutter);
   padding: var(--block-padding-s);
   margin: 0 auto;
@@ -76,16 +75,16 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
   ${({ AM }) =>
     AM &&
     `max-width: calc(1021px + var(--block-padding-s) * 2);
+     grid-template-columns: calc(200px + var(--layout-gutter)) auto;
 
     ${greaterThan('s')`
+        grid-template-columns: calc(200px + var(--layout-gutter)) auto;
 
-    grid-template-columns: calc(200px + var(--layout-gutter)) auto;
-
-    /* Add padding and border to nav element */
-    .multicol__nav {
-      border-right: 1px solid var(--grey);
-      padding-right: var(--grid-gutter);
-    }
+        /* Add padding and border to nav element */
+        .multicol__nav {
+            border-right: 1px solid var(--grey);
+            padding-right: var(--grid-gutter);
+        }
     `}
    `}
 
@@ -109,7 +108,7 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
     `
         max-width: calc(1091px + var(--block-padding-s) * 2);
 
-        ${lessThan('ls')`
+        ${greaterThan('ls')`
             grid-template-columns: auto calc(270px + var(--layout-gutter));
             max-width: calc(1091px + var(--block-margin) * 2);
 
@@ -185,25 +184,4 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
     `}
 
 `}
-
-    /* Modifier to change element template areas and order when stacked */
-         ${({ sidebarTop }) =>
-    sidebarTop &&
-    `
-        ${between('ls', 'll')`
-            grid-template-areas:
-            'nav sidebar'
-            'nav main';
-            `}
-
-        ${greaterThan('ls')`
-            main {
-                order: 2;
-            }
-
-            .multicol__sidebar {
-                order: 1;
-            }
-            `}
-        `}
 `;

@@ -7,37 +7,54 @@
 
 import React from 'react';
 import { LayoutStyles } from './LayoutStyles';
+import { handleThrowError } from '@/helpers/handleThrowError';
 interface LayoutProps {
-  children: React.ReactNode;
-  aside?: JSX.Element;
+  primaryAside?: JSX.Element;
+  secondaryAside?: JSX.Element;
   AM?: boolean;
   isIntranet?: boolean;
   MA?: boolean;
   AMA?: boolean;
-  sidebarTop?: boolean;
 }
 
 export const Layout: React.FC<LayoutProps> = ({
-  children,
-  aside,
+  primaryAside,
   AM,
   isIntranet,
   MA,
   AMA,
-  sidebarTop,
+  children,
+  secondaryAside,
 }): JSX.Element => {
   const layoutProps = {
-    aside,
+    primaryAside,
     AM,
     isIntranet,
     MA,
     AMA,
-    sidebarTop,
   };
+  if ((AM && MA) || (AMA && MA) || (AMA && AM))
+    handleThrowError(
+      'Layouts can only accept one Layout option. Please choose AM, MA, OR AMA'
+    );
   return (
     <LayoutStyles {...layoutProps}>
-      {aside && aside}
-      {children}
+      {!primaryAside &&
+        handleThrowError('Layouts return one or two aside components.')}
+      {!children && handleThrowError('Layouts must return child elements.')}
+      {AMA &&
+        !secondaryAside &&
+        handleThrowError('AMA Layout must return a secondaryAside.')}
+      {/* AM: aside/main layout */}
+      {AM && !MA && primaryAside}
+      {AM && !MA && children}
+      {/* MA: main/aside layout */}
+      {MA && !AM && children}
+      {MA && !AM && primaryAside}
+      {/* AMA: aside/main/aside layout */}
+      {AMA && !AM && !MA && primaryAside}
+      {AMA && !AM && !MA && children}
+      {AMA && !AM && !MA && secondaryAside}
     </LayoutStyles>
   );
 };
