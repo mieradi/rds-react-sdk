@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { ButtonStyles } from '@/components/button/ButtonStyles';
+import { handleThrowError } from '@/helpers/handleThrowError';
 
 export interface ButtonProps {
   handleClick?: (
@@ -47,6 +48,13 @@ export const Button: React.FC<ButtonProps> = ({
       {...(!handleClick && url && { href: url })}
       {...buttonProps}
       {...(handleClick && !url && { onClick: handleClick })}
+      {...(handleClick &&
+        url && {
+          onClick: () =>
+            handleThrowError(
+              'Button can not use both the url and handleClick prop together. Please choose only one.'
+            ),
+        })}
     >
       {icon && icon}
       {title}
