@@ -1,25 +1,35 @@
+/**
+ * @name CardStyles
+ * @desc description here
+ * @param {} param desc
+ * @returns returns desc
+ */
+
 import styled from 'styled-components';
+import { greaterThan } from '@/components/cuMediaQueries';
+
 interface CardStylesProps {
   people?: boolean;
   figure?: boolean;
   video?: boolean;
   col?: number;
+  imgUrl?: string;
+  noLink?: boolean;
 }
 export const CardStyles = styled.article<CardStylesProps>`
   position: relative;
-  height: 100%;
   /* helps with equal vert height in listings */
   background-color: white;
   max-width: 768px;
   border-radius: 10px;
-
-  /* figure {
-    max-width: 233px;
-  } */
-
-  &:hover h3 {
+  height: 100%;
+  ${({ noLink }) =>
+    !noLink &&
+    `
+    &:hover h3 {
     color: var(--red);
   }
+`}
 
   &:after {
     content: '';
@@ -30,32 +40,31 @@ export const CardStyles = styled.article<CardStylesProps>`
     bottom: 15px;
     margin-top: 20px;
     background: var(--red);
-    /*
-    @include media('>s') {
+    ${greaterThan('s')`
       left: 25px;
       bottom: 20px;
-    } */
+    `}
   }
 
   /* to use if we ever use a card without an image */
-  /* &--no-img { */
-  /* max-width: 384px; */
-  /* } */
+  ${({ imgUrl }) => !imgUrl && `max-width: 384px;`}
 
   /* link wrapped around entire card */
   a {
     display: block;
     color: var(--black) !important;
-    /* box-shadow: var(--ds-y); */
-    box-shadow: 0 5px 8px 2px rgba(83, 83, 83, 0.1);
     width: 100%;
     height: 100%;
     border-radius: 5px;
-
+    ${({ noLink }) =>
+      !noLink &&
+      `
+    box-shadow: 0 5px 8px 2px rgba(83, 83, 83, 0.1);
     &:hover {
       text-decoration: none;
       box-shadow: 0 5px 8px 2px rgba(83, 83, 83, 0.2);
     }
+`}
   }
 
   img {
@@ -90,9 +99,9 @@ export const CardStyles = styled.article<CardStylesProps>`
     line-height: 1.25;
     border-bottom: 0;
 
-    @include media('>s') {
+    ${greaterThan('s')`
       font-size: var(--pixel15);
-    }
+    `}
   }
 
   /* Card description */
@@ -105,23 +114,28 @@ export const CardStyles = styled.article<CardStylesProps>`
   /* End c-card component */
 
   /* increase drop shadow on white bgs */
-
-  .c-card a {
+  ${({ noLink }) =>
+    !noLink &&
+    `
+    a {
     box-shadow: 0 5px 8px 2px rgba(83, 83, 83, 0.1);
 
     &:hover {
       box-shadow: 0 5px 8px 2px rgba(83, 83, 83, 0.2);
     }
   }
+`}
 
   /* Bigger title when in 3 col grid */
   ${({ col }) =>
     col === 3 &&
-    `h3 {
-      @include media('>s') {
+    `
+    ${greaterThan('s')`
+        h3 {
           font-size: var(--pixel18);
         }
-    }`}
+    `}
+  `}
 
   /* Less padding in 4 col grid */
   ${({ col }) =>
@@ -136,6 +150,10 @@ export const CardStyles = styled.article<CardStylesProps>`
 
   /* Video variant */
   /* ============== */
+  ${({ video }) => {
+    console.log(video);
+    return '';
+  }}
   ${({ video }) =>
     video &&
     `figure {
@@ -181,15 +199,18 @@ export const CardStyles = styled.article<CardStylesProps>`
       margin: 0 auto;
       max-width: 55%;
     }
+    `}
 
-
+${({ figure }) =>
+    figure &&
+    `
     text-align: center;
 
     a {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      border: 1px solid $grey-yoda;
+      border: 1px solid var(--grey-yoda);
       border-radius: 6px;
     }
 
@@ -199,17 +220,17 @@ export const CardStyles = styled.article<CardStylesProps>`
 
     figure {
       padding: 40px;
-      border: 1px solid $grey-kenobi;
+      border: 1px solid var(--grey-kenobi);
       border-radius: 6px;
     }
 
     figcaption {
-      color: $grey-vader;
+      color: var(--grey-vader);
       margin-bottom: 15px;
     }
 
     p {
-      font-size: $pixel54;
+      font-size: var(--pixel54);
       font-weight: 700;
       line-height: 0.8;
     }

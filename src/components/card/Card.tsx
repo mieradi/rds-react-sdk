@@ -1,12 +1,44 @@
 import React from 'react';
-
 import { CardStyles } from './CardStyles';
 
+/**
+ * @name CardInnerWrapperProps
+ * @desc description here
+ * @param {} param desc
+ * @returns returns desc
+ */
+interface CardInnerWrapperProps {
+  children: React.ReactNode | JSX.Element;
+  url?: string;
+  noLink?: boolean;
+}
+
+const CardInnerWrapper: React.FC<CardInnerWrapperProps> = ({
+  children,
+  noLink,
+  url,
+}): JSX.Element => {
+  if (noLink) return <>{children}</>;
+  else {
+    return (
+      <a href={noLink ? '' : url} itemProp="url">
+        {children}
+      </a>
+    );
+  }
+};
+
+/**
+ * @name Card
+ * @desc description here
+ * @param {} param desc
+ * @returns returns desc
+ */
 interface CardProps {
   title: string;
-  url: string;
-  imgUrl: string;
-  alt: string;
+  url?: string;
+  imgUrl?: string;
+  alt?: string;
   col?: number;
   description?: string;
   date?: string;
@@ -34,14 +66,17 @@ export const Card: React.FC<CardProps> = ({
       people={people}
       figure={figure}
       col={col}
+      video={video}
+      imgUrl={imgUrl}
+      noLink={noLink}
       itemScope
       itemType="http://schema.org/NewsArticle"
     >
-      <a href={noLink ? '' : url} itemProp="url">
+      <CardInnerWrapper url={url} noLink={noLink}>
         <figure itemScope itemType="http://schema.org/ImageObject">
-          <img src={imgUrl} alt={alt} loading="lazy" />
-          {video && (
-            <span className="u-icon u-icon--circle" aria-hidden="true">
+          {!figure && <img src={imgUrl} alt={alt} loading="lazy" />}
+          {video && !figure && (
+            <span aria-hidden="true">
               <svg
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,22 +86,25 @@ export const Card: React.FC<CardProps> = ({
               </svg>
             </span>
           )}
+          {figure && (
+            <>
+              <figcaption>U-Sports Titles</figcaption>
+              <p itemProp="value">15</p>
+            </>
+          )}
         </figure>
-        <header>
-          {date && (
-            <time dateTime="2018-03-11" itemProp="datePublished">
-              Sunday, March 11th
-            </time>
-          )}
-          <h3 itemProp="headline">{title}</h3>
-          {description && (
-            <p itemProp="description">
-              The birds are surprisingly skilled at planning how to get food in
-              the future.
-            </p>
-          )}
-        </header>
-      </a>
+        {!figure && (
+          <header>
+            {date && (
+              <time dateTime={date} itemProp="datePublished">
+                {date}
+              </time>
+            )}
+            <h3 itemProp="headline">{title}</h3>
+            {description && <p itemProp="description">{description}</p>}
+          </header>
+        )}
+      </CardInnerWrapper>
     </CardStyles>
   );
 };
