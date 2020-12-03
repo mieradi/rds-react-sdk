@@ -84,7 +84,7 @@ export const SearchStyles = styled.div<SearchStylesProps>`
   ${({ isSmall }) =>
     isSmall &&
     `
-        padding: 0;
+        padding: 0 !important;
         margin-bottom: 5px !important;
 
         input {
