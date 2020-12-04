@@ -11,7 +11,8 @@ import { FormDescription } from '@/components/forms/description/FormDescription'
 
 interface TextAreaProps {
   handleOnChange(event: React.FormEvent<HTMLTextAreaElement>): void;
-  rows: number;
+  value: string;
+  rows?: number;
   label?: string;
   description?: string;
   placeholder?: string;
@@ -23,6 +24,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
   label,
   placeholder,
   rows,
+  value,
 }): JSX.Element => {
   return (
     <TextAreaStyles>
@@ -34,6 +36,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         name="textarea"
         rows={rows}
         placeholder={placeholder}
+        value={value}
       ></textarea>
     </TextAreaStyles>
   );

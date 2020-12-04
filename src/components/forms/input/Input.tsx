@@ -9,6 +9,7 @@ import React from 'react';
 interface InputProps {
   handleOnChange(event: React.FormEvent<HTMLInputElement>): void;
   inputType: string;
+  value: string;
   placeholder?: string;
   id?: string;
   name?: string;
@@ -22,6 +23,7 @@ export const Input: React.FC<InputProps> = ({
   id,
   name,
   label,
+  value,
 }): JSX.Element => {
   return (
     <>
@@ -32,6 +34,7 @@ export const Input: React.FC<InputProps> = ({
         type={inputType}
         name={name || inputType}
         placeholder={placeholder}
+        value={value}
       />
     </>
   );
