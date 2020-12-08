@@ -39,7 +39,7 @@ interface CardProps {
   url?: string;
   imgUrl?: string;
   alt?: string;
-  col?: number;
+  parentGridSize?: number;
   description?: string;
   date?: string;
   video?: boolean;
@@ -54,7 +54,7 @@ export const Card: React.FC<CardProps> = ({
   imgUrl,
   alt,
   description,
-  col,
+  parentGridSize,
   date,
   video,
   people,
@@ -65,7 +65,7 @@ export const Card: React.FC<CardProps> = ({
     <CardStyles
       people={people}
       figure={figure}
-      col={col}
+      parentGridSize={parentGridSize}
       video={video}
       imgUrl={imgUrl}
       noLink={noLink}
@@ -88,8 +88,8 @@ export const Card: React.FC<CardProps> = ({
           )}
           {figure && (
             <>
-              <figcaption>U-Sports Titles</figcaption>
-              <p itemProp="value">15</p>
+              <figcaption>{title}</figcaption>
+              <p itemProp="value">{description}</p>
             </>
           )}
         </figure>

@@ -12,9 +12,9 @@ interface CardStylesProps {
   people?: boolean;
   figure?: boolean;
   video?: boolean;
-  col?: number;
   imgUrl?: string;
   noLink?: boolean;
+  parentGridSize?: number;
 }
 export const CardStyles = styled.article<CardStylesProps>`
   position: relative;
@@ -127,8 +127,8 @@ export const CardStyles = styled.article<CardStylesProps>`
 `}
 
   /* Bigger title when in 3 col grid */
-  ${({ col }) =>
-    col === 3 &&
+  ${({ parentGridSize }) =>
+    parentGridSize === 3 &&
     `
     ${greaterThan('s')`
         h3 {
@@ -138,8 +138,8 @@ export const CardStyles = styled.article<CardStylesProps>`
   `}
 
   /* Less padding in 4 col grid */
-  ${({ col }) =>
-    col === 4 &&
+  ${({ parentGridSize }) =>
+    parentGridSize === 4 &&
     `header {
     padding: 20px 20px 40px 20px;
     &:after {
@@ -150,32 +150,25 @@ export const CardStyles = styled.article<CardStylesProps>`
 
   /* Video variant */
   /* ============== */
-  ${({ video }) => {
-    console.log(video);
-    return '';
-  }}
   ${({ video }) =>
     video &&
     `figure {
-    position: relative;
+        position: relative;
 
-    > span {
-      font-size: 65px;
-      position: absolute;
-      top: calc(
-        50% - 32px
-      );
-       /* determine center by subtracting half the height of the icon */
-      left: calc(50% - 32px);
-       /* and again */
-      width: 50px;
-      height: 50px;
-      fill: white;
-
-      &::before {
-        background-color: rgba(191, 17, 43, 0.65);
-      }
-    }
+        span {
+            font-size: 65px;
+            position: absolute;
+            top: calc(50% - 32px);
+            /* determine center by subtracting half the height of the icon */
+            left: calc(50% - 32px);
+            /* and again */
+            width: 50px;
+            height: 50px;
+            fill: white;
+            &::before {
+			    background-color: rgba(191, 17, 43, 0.65);
+		    }
+        }
   }`}
 
   /* People variant */
