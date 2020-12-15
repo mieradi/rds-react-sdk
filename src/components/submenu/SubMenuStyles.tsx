@@ -6,14 +6,13 @@
  */
 
 import styled from 'styled-components';
-
 interface SubMenuStylesProps {
   position?: string;
   hasDividers?: boolean;
 }
 
 export const SubMenuStyles = styled.ul<SubMenuStylesProps>`
-  position: relative;
+  position: absolute;
   display: inline-block;
   list-style: none;
   margin: 0;

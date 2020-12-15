@@ -14,7 +14,7 @@ import { SVG } from '@/icons/base/SVG';
 
 interface ModalProps {
   content: React.ReactNode;
-  handleClose?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  handleClose: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export const Modal: React.FC<ModalProps> = ({

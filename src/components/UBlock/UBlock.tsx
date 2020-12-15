@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { greaterThan } from '../cuMediaQueries';
+import { greaterThan } from '@/components/cuMediaQueries';
 
 type UBlockProps = {
-  readonly backgroundColor?: string;
-  readonly full?: boolean;
-  readonly borderTop?: boolean;
-  readonly masthead?: boolean;
-  readonly panel?: boolean;
-  readonly alert?: boolean;
+  backgroundColor?: 'grey' | 'black' | 'white' | null;
+  full?: boolean;
+  borderTop?: boolean;
+  masthead?: boolean;
+  panel?: boolean;
+  alert?: boolean;
 };
-export const UBlock = styled.section<UBlockProps>`
+export const UBlock = styled.div<UBlockProps>`
   padding: 30px 25px;
 
   /* handle large screen size */
@@ -19,7 +19,7 @@ export const UBlock = styled.section<UBlockProps>`
     backgroundColor ? `var(--${backgroundColor})` : 'white'};
 
   color: ${({ backgroundColor }) =>
-    backgroundColor === 'black' ? 'white' : 'inherit'};
+    backgroundColor ? backgroundColor : 'inherit'};
 
   /* handle masthead prop */
   ${({ masthead }) =>
