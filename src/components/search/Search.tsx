@@ -9,11 +9,13 @@ import React from 'react';
 import { SearchStyles } from '@/components/search/SearchStyles';
 
 interface SearchProps {
+  value: string;
   handleOnChange(event: React.FormEvent<HTMLInputElement>): void;
   isSmall?: boolean;
 }
 
 export const Search: React.FC<SearchProps> = ({
+  value,
   isSmall,
   handleOnChange,
 }): JSX.Element => {
@@ -21,6 +23,7 @@ export const Search: React.FC<SearchProps> = ({
     <SearchStyles isSmall={isSmall}>
       <label htmlFor="searchform__input">Search</label>
       <input
+        value={value}
         {...(handleOnChange && { onChange: handleOnChange })}
         id="searchform__input"
         tabIndex={0}
