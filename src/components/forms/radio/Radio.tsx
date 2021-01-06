@@ -12,6 +12,7 @@ import { FormDescription } from '@/components/forms/description/FormDescription'
 import { FormGroupStyles } from '@/components/forms/group/FormGroupStyles';
 
 interface RadioProps {
+  handleOnChange(event: React.FormEvent<HTMLFieldSetElement>):void;
   description?: String;
   legend?: String;
   isGroup?: boolean;
@@ -23,10 +24,11 @@ export const Radio: React.FC<RadioProps> = ({
   description,
   legend,
   isGroup,
+  handleOnChange,
 }): JSX.Element => {
   return (
     <RadioStyles>
-      <fieldset>
+      <fieldset {...(handleOnChange && { onChange: handleOnChange })}>
         {legend && <legend>{legend}</legend>}
         {description && <FormDescription description={description} />}
         {isGroup ? <FormGroupStyles>{children}</FormGroupStyles> : children}

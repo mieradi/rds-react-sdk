@@ -25,9 +25,10 @@ export const Input: React.FC<InputProps> = ({
   label,
   value,
 }): JSX.Element => {
+  const types = ['radio', 'checkbox']
   return (
     <>
-      {label && <label htmlFor={id}>{label}</label>}
+      {label && !types.includes(inputType) && <label htmlFor={id}>{label}</label>}
       <input
         {...(handleOnChange && { onChange: handleOnChange })}
         id={id}
@@ -36,6 +37,7 @@ export const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         value={value}
       />
+      {label && types.includes(inputType) && <label htmlFor={id}>{label}</label>}
     </>
   );
 };
