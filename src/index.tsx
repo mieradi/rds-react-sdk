@@ -32,12 +32,16 @@ import { Search } from '@/components/search/Search';
 import { Modal } from '@/components/modal/Modal';
 import { Toast } from '@/components/toast/Toast';
 import { SubMenu } from '@/components/submenu/SubMenu';
+import { DropdownMenu } from '@/components/dropdownMenu/DropdownMenu';
 
 import { SVG } from '@/icons/base/SVG';
+
 export {
+  Aside,
   Button,
   Card,
   Details,
+  DropdownMenu,
   Listing,
   ListItem,
   Masthead,
@@ -45,7 +49,6 @@ export {
   Banner,
   Panel,
   UBlock,
-  Aside,
   Layout,
   Masonry,
   ListingLoadingState,
