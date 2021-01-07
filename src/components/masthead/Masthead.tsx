@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { MastheadStyles } from './MastheadStyles';
+import { MastheadStyles, MastheadActionsStyles } from './MastheadStyles';
 import { UBlock } from '../UBlock/UBlock';
+
 // import { useWindowDimensions } from '@/customHooks/useWindowDimensions';
 
 interface MastheadProps {
   title: string;
   logo: JSX.Element;
   children?: React.ReactNode;
+  actions?: JSX.Element;
 }
 
 export const Masthead: React.FC<MastheadProps> = ({
   children,
   title,
   logo,
+  actions,
 }): JSX.Element => {
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
 
   useEffect(() => {
     const base = 0;
@@ -74,6 +77,7 @@ export const Masthead: React.FC<MastheadProps> = ({
             <ul className="nav__menu nav__menu--top">{children}</ul>
           </div>
         </nav>
+        {actions && <MastheadActionsStyles>{actions}</MastheadActionsStyles>}
       </MastheadStyles>
     </UBlock>
   );

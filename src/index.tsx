@@ -32,7 +32,7 @@ import { Search } from '@/components/search/Search';
 import { Modal } from '@/components/modal/Modal';
 import { Toast } from '@/components/toast/Toast';
 import { SubMenu } from '@/components/submenu/SubMenu';
-import { DropdownMenu } from '@/components/dropdownMenu/DropdownMenu';
+import { DropdownMenu } from '@/components/__dropdownMenu/DropdownMenu';
 
 import { SVG } from '@/icons/base/SVG';
 

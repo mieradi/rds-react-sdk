@@ -1,17 +1,19 @@
 import styled from 'styled-components';
+import { greaterThan } from '@/components/cuMediaQueries';
 type MastheadStylesProps = {
-  readonly isScrollingUp?: boolean;
+  isScrollingUp?: boolean;
 };
 
 export const MastheadStyles = styled.div<MastheadStylesProps>`
   border-top: 2px solid var(--red);
   border-bottom: 1px solid var(--grey-kenobi);
   height: calc(var(--masthead_height) + 3px);
-  & .c-nav,
+
+  /* ul,
   & > ul,
-  & .c-nav > ul {
+  & ul > ul {
     height: var(--masthead_height);
-  }
+  } */
 
   nav {
     width: 100%;
@@ -21,17 +23,16 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
   .c-nav--topnav {
     width: 100%;
 
-    .nav__menu {
+    nav {
       justify-content: flex-start !important;
       margin-left: 0 !important;
     }
   }
-  /* display: ${({ isScrollingUp }) => (isScrollingUp ? 'flex' : 'none')}; */
-  display: flex;
+
+  display: ${({ isScrollingUp }) => (isScrollingUp ? 'flex' : 'none')};
   align-items: center;
-  .c-nav,
-  & > ul,
-  & .c-nav > ul {
+  ul,
+  & ul > ul {
     display: flex;
     align-items: center;
 
@@ -59,10 +60,17 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
       position: relative;
       white-space: nowrap;
       align-items: center;
-      font-size: var(--pixel14);
-      font-weight: 500;
       padding-left: 15px;
       padding-right: 15px;
+    }
+
+    a,
+    button,
+    li {
+      font-size: var(--pixel14);
+      font-weight: 500;
+      list-style: none;
+      color: var(--black);
     }
 
     a:hover,
@@ -74,24 +82,13 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
 
     /* Modifiers  */
 
-    .c-menupopup > button {
+    /* .c-menupopup > button {
       padding-right: 25px;
 
       &::after {
         right: 14px;
       }
-    }
-    .has-submenu {
-      /* Hide child navs by default  */
-      & > ul {
-        display: none;
-      }
-
-      /* Show the child nav when expanded  */
-      &.open > ul {
-        display: block;
-      }
-    }
+    } */
   }
 
   h1 {
@@ -105,11 +102,9 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
     span {
       display: table;
     }
-
-    @include media('>s') {
-      border-right: 1px solid var(--grey-yoda);
-    }
-
+    ${greaterThan('s')`
+        border-right: 1px solid var(--grey-yoda);
+    `}
     a {
       display: flex;
       align-items: center;
@@ -120,11 +115,10 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
         color: var(--red);
         background-color: transparent;
       }
-
-      @include media('>s') {
-        font-size: 20px;
-        padding: 0 15px;
-      }
+      ${greaterThan('s')`
+            font-size: 20px;
+            padding: 0 15px;
+    `}
     }
 
     svg {
@@ -135,56 +129,71 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
       vertical-align: middle;
     }
   }
+`;
 
-  .masthead__actions {
-    justify-content: flex-end;
-    margin-left: auto;
+/**
+ * @name MastheadActionsStyles
+ * @desc description here
+ * @param {} param desc
+ * @returns returns desc
+ */
 
-    li {
-      border-left: 1px solid var(--grey-yoda);
+interface MastheadActionsStylesProps {
+  CTAWhite?: boolean;
+}
 
-      a,
-      button {
-        display: flex;
-        align-items: center;
-        height: 100%;
-      }
+export const MastheadActionsStyles = styled.ul<MastheadActionsStylesProps>`
+  justify-content: flex-end;
+  margin-left: auto;
+
+  li {
+    border-left: 1px solid var(--grey-yoda);
+    list-style: none;
+
+    a,
+    button {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  a {
+    background-color: var(--red);
+    color: white;
+    svg {
+      fill: white;
     }
 
-    .masthead__cta > a {
-      background-color: var(--red);
-      color: white;
+    &:hover {
+      background: var(--grey);
+      color: black;
 
       svg {
-        fill: white;
-      }
-
-      &:hover {
-        background: var(--grey);
-        color: black;
-
-        svg {
-          fill: black;
-        }
-      }
-    }
-
-    .masthead__cta--white > a {
-      background-color: white;
-      color: var(--black);
-
-      svg {
-        fill: var(--black);
-      }
-
-      &:hover {
-        background: var(--grey);
-        color: black;
-
-        svg {
-          fill: black;
-        }
+        fill: black;
       }
     }
   }
+
+  ${({ CTAWhite }) =>
+    CTAWhite &&
+    `
+        a {
+        background-color: white;
+        color: var(--black);
+
+        svg {
+            fill: var(--black);
+        }
+
+        &:hover {
+            background: var(--grey);
+            color: black;
+
+            svg {
+            fill: black;
+            }
+        }
+        }
+    `}
 `;
