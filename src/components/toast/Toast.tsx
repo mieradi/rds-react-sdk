@@ -148,8 +148,10 @@ const autoDeleteToast = (
   toasts: Array<ToastObjectProps>,
   setToasts: Function
 ) => {
-  if (toasts.length > 0) {
-    const filtered = toasts.splice(1);
+  if (Array.isArray(toasts) && toasts.length > 0) {
+    let arr = toasts;
+    let filtered = [...arr].splice(1);
+
     setToasts(filtered);
   }
 };
