@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { MastheadStyles, MastheadActionsStyles } from './MastheadStyles';
+import {
+  MastheadStyles,
+  MastheadActionsStyles,
+  MastheadHamburgerStyles,
+} from './MastheadStyles';
 import { UBlock } from '../UBlock/UBlock';
 
-// import { useWindowDimensions } from '@/customHooks/useWindowDimensions';
-
-interface MastheadProps {
+interface MastHeadProps {
   title: string;
   logo: JSX.Element;
+  hamburger: JSX.Element;
   children?: React.ReactNode;
   actions?: JSX.Element;
+  mobileIsActive: boolean;
 }
 
-export const Masthead: React.FC<MastheadProps> = ({
+export const MastHead: React.FC<MastHeadProps> = ({
   children,
   title,
   logo,
+  hamburger,
   actions,
+  mobileIsActive,
 }): JSX.Element => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
 
@@ -78,6 +84,11 @@ export const Masthead: React.FC<MastheadProps> = ({
           </div>
         </nav>
         {actions && <MastheadActionsStyles>{actions}</MastheadActionsStyles>}
+        {hamburger && (
+          <MastheadHamburgerStyles mobileIsOpen={mobileIsActive}>
+            {hamburger}
+          </MastheadHamburgerStyles>
+        )}
       </MastheadStyles>
     </UBlock>
   );

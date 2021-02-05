@@ -6,7 +6,14 @@
  */
 
 import styled from 'styled-components';
+import { IErrorStyles } from '../../../types/forms/IErrorStyles';
 
-interface TextAreaStylesProps {}
+interface TextAreaStylesProps extends IErrorStyles {}
 
-export const TextAreaStyles = styled.div<TextAreaStylesProps>``;
+export const TextAreaStyles = styled.div<TextAreaStylesProps>`
+  textarea:focus {
+    outline: ${({ hasError }) => (hasError ? ' none !important' : 'default')};
+    border: ${({ hasError }) =>
+      hasError ? '2px solid var(--red)' : 'default'};
+  }
+`;

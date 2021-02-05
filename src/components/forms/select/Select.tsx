@@ -6,30 +6,55 @@
  */
 
 import React from 'react';
-import { SelectStyles } from '@/components/forms/select/SelectStyles';
+import { SelectStyles } from '@components/forms/select/SelectStyles';
+import { FormError } from '../error/FormError';
 
-interface SelectProps {
-  handleOnChange(event: React.FormEvent<HTMLDivElement>): void;
+import { IFormProps } from '../../../types/validation/IFormProps';
+
+interface ISelect extends IFormProps {
+  handleOnChange?: (event: React.FormEvent<HTMLSelectElement>) => void;
   multiple?: boolean;
-  label?: String;
   description?: String;
   children: React.ReactNode;
 }
 
-export const Select: React.FC<SelectProps> = ({
-  handleOnChange,
-  children,
-  label,
-  description,
-  multiple,
-}): JSX.Element => {
+export const Select: React.FC<ISelect> = (props): JSX.Element => {
+  const {
+    handleOnChange,
+    id,
+    name,
+    label,
+    multiple,
+    description,
+    validationRules,
+    errors,
+    register,
+    children,
+    hasValidation,
+  } = props;
+
   return (
-    <SelectStyles {...(handleOnChange && { onChange: handleOnChange })}>
-      {label && <label htmlFor="select">{label}</label>}
-      {description && <p className="form__description">{description}</p>}
-      <select multiple={multiple} id="select" name="select">
-        {children}
-      </select>
-    </SelectStyles>
+    <>
+      <SelectStyles>
+        {label && <label htmlFor="select">{label}</label>}
+        {description && <p className="form__description">{description}</p>}
+        <select
+          {...(hasValidation && { ref: register(validationRules) })}
+          {...(handleOnChange && { onChange: handleOnChange })}
+          multiple={multiple}
+          id={id}
+          name={name}
+        >
+          {children}
+        </select>
+      </SelectStyles>
+      {hasValidation && (
+        <FormError
+          errors={errors}
+          validationRules={validationRules}
+          name={name}
+        />
+      )}
+    </>
   );
 };

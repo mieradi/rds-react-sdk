@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { SVGBase } from '@/icons/base/SVGBase';
+import { SVGBase } from '@icons/base/SVGBase';
 interface SVGStylesProps {
   fill?: string;
   hoverColor?: string;

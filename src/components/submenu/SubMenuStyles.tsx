@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+
 interface SubMenuStylesProps {
   position?: string;
   hasDividers?: boolean;

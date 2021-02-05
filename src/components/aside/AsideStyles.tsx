@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { PanelStyles } from '../panel/PanelStyles';
-import { ButtonStyles } from '../button/ButtonStyles';
-import { DetailsStyles } from '../details/DetailsStyles';
-import { greaterThan } from '../cuMediaQueries';
+import { PanelStyles } from '@components/panel/PanelStyles';
+import { ButtonStyles } from '@components/button/ButtonStyles';
+import { DetailsStyles } from '@components/details/DetailsStyles';
+import { greaterThan } from '@components/cuMediaQueries';
 interface AsideStylesProps {
   readonly hasSubmenu?: boolean;
   readonly isSubmenu?: boolean;
@@ -101,12 +101,12 @@ export const AsideStyles = styled.aside<AsideStylesProps>`
         padding: 8px 10px;
       }
 
-      svg {
+      /* svg {
         width: 8px;
         height: 8px;
         fill: $grey-vader;
         margin-right: 5px;
-      }
+      } */
     }
 `}
 

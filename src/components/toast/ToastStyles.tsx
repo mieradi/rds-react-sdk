@@ -6,43 +6,36 @@
  */
 
 import styled from 'styled-components';
-
 interface ToastStylesProps {
-  type: string;
+  type: String;
 }
 
-const handleToastType = (type: string) => {
-  switch (type) {
-    case 'success':
-      return { background: '#fafff5', border: '#45bf2e', svgFill: '#45bf2e' };
-    case 'warning':
-      return { background: '#fffaf1', border: '#faab08', svgFill: '#faab08' };
-    case 'info':
-      return {
-        background: '#e6f7ff',
-        border: '#91d5ff',
-        svgFill: '#1496da',
-      };
-    case 'error':
-      return {
-        background: 'var(--pink)',
-        border: 'var(--red)',
-        svgFill: 'var(--red)',
-      };
-    default:
-      return {
-        background: 'white',
-        border: 'white',
-        svgFill: 'var(--black)',
-      };
-  }
+const handleToastType = (toastType: any) => {
+  const toastStyles = {
+    success: { background: '#fafff5', border: '#45bf2e', svgFill: '#45bf2e' },
+    warning: { background: '#fffaf1', border: '#faab08', svgFill: '#faab08' },
+    info: {
+      background: '#e6f7ff',
+      border: '#91d5ff',
+      svgFill: '#1496da',
+    },
+    error: {
+      background: 'var(--pink)',
+      border: 'var(--red)',
+      svgFill: 'var(--red)',
+    },
+    default: {
+      background: 'white',
+      border: 'white',
+      svgFill: 'var(--black)',
+    },
+  };
+  return toastType ? toastStyles[toastType] : toastStyles.default;
 };
 
 export const ToastStyles = styled.div<ToastStylesProps>`
-  background: ${({ type }: { type: string }) =>
-    handleToastType(type).background};
-  border: 1px solid
-    ${({ type }: { type: string }) => handleToastType(type).border};
+  background: ${({ type }) => handleToastType(type).background};
+  border: 1px solid ${({ type }) => handleToastType(type).border};
   width: fit-content;
   min-width: 400px;
   padding: 1rem;
@@ -53,7 +46,7 @@ export const ToastStyles = styled.div<ToastStylesProps>`
   text-align: center;
 
   svg {
-    fill: ${({ type }: { type: string }) => handleToastType(type).svgFill};
+    fill: ${({ type }) => handleToastType(type).svgFill};
   }
 `;
 

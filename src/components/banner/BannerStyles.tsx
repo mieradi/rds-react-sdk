@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { greaterThan } from '@/components/cuMediaQueries';
-import { ButtonStyles } from '@/components/button/ButtonStyles';
-import { SearchStyles } from '@/components/search/SearchStyles';
+import { greaterThan } from '@components/cuMediaQueries';
+import { ButtonStyles } from '@components/button/ButtonStyles';
+import { SearchStyles } from '@components/search/SearchStyles';
 
 interface BannerStylesProps {
   isIntranet?: boolean;

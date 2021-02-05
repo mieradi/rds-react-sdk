@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { UBlock } from '@/components/UBlock/UBlock';
-import { greaterThan, between } from '@/components/cuMediaQueries';
+import { UBlock } from '@components/UBlock/UBlock';
+import { greaterThan, between } from '@components/cuMediaQueries';
 
 interface LayoutStylesProps {
   AM?: boolean;

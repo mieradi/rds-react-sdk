@@ -6,38 +6,56 @@
  */
 
 import React from 'react';
-interface InputProps {
-  handleOnChange(event: React.FormEvent<HTMLInputElement>): void;
-  inputType: string;
-  value: string;
-  placeholder?: string;
-  id?: string;
-  name?: string;
-  label?: string;
+import { FormError } from '../error/FormError';
+import { IFormProps } from '../../../types/validation/IFormProps';
+import { InputStyles } from './InputStyles';
+import { handleHasError } from '@utils/handleHasError';
+
+interface IInput extends IFormProps {
+  handleOnChange?: (event: React.FormEvent<HTMLInputElement>) => void;
+  handleOnClick?: (event: React.FormEvent<HTMLInputElement>) => void;
 }
 
-export const Input: React.FC<InputProps> = ({
-  handleOnChange,
-  inputType,
-  placeholder,
-  id,
-  name,
-  label,
-  value,
-}): JSX.Element => {
-  const types = ['radio', 'checkbox']
+export const Input: React.FC<IInput> = (props): JSX.Element => {
+  const {
+    handleOnChange,
+    inputType,
+    placeholder,
+    id,
+    name,
+    label,
+    value,
+    validationRules,
+    errors,
+    register,
+    isChecked,
+    hasValidation,
+    handleOnClick,
+  } = props;
+  const isSelectable = inputType === 'checkbox' || inputType === 'radio';
+
   return (
-    <>
-      {label && !types.includes(inputType) && <label htmlFor={id}>{label}</label>}
+    <InputStyles hasError={handleHasError(errors, name)}>
+      {label && !isSelectable && <label htmlFor={id}>{label}</label>}
       <input
         {...(handleOnChange && { onChange: handleOnChange })}
-        id={id}
+        {...(handleOnClick && { onClick: handleOnClick })}
+        {...(isSelectable && { checked: isChecked })}
+        {...(hasValidation && { ref: register(validationRules) })}
         type={inputType}
-        name={name || inputType}
+        name={name}
         placeholder={placeholder}
         value={value}
+        id={id}
       />
-      {label && types.includes(inputType) && <label htmlFor={id}>{label}</label>}
-    </>
+      {label && isSelectable && <label htmlFor={id}>{label}</label>}
+      {hasValidation && (
+        <FormError
+          errors={errors}
+          validationRules={validationRules}
+          name={name}
+        />
+      )}
+    </InputStyles>
   );
 };

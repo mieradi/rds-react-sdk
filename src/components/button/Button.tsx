@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { ButtonStyles } from '@/components/button/ButtonStyles';
-import { handleThrowError } from '@/helpers/handleThrowError';
+import { ButtonStyles } from '@components/button/ButtonStyles';
+import { handleThrowError } from '@utils/handleThrowError';
 
 export interface ButtonProps {
   handleClick?: (

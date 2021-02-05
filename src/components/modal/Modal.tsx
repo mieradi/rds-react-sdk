@@ -9,8 +9,8 @@ import React from 'react';
 import {
   ModalStyles,
   InnerModalWrapperStyles,
-} from '@/components/modal/ModalStyles';
-import { SVG } from '@/icons/base/SVG';
+} from '@components/modal/ModalStyles';
+import { SVG } from '@icons/base/SVG';
 
 interface ModalProps {
   content: React.ReactNode;

@@ -8,7 +8,7 @@ import React from 'react';
 import {
   SubMenuStyles,
   SubMenuContainerStyles,
-} from '@/components/submenu/SubMenuStyles';
+} from '@components/submenu/SubMenuStyles';
 
 interface SubMenuProps {
   children: React.ReactNode;

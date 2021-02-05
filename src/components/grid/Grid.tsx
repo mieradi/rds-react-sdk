@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { greaterThan } from '@/components/cuMediaQueries';
+import { greaterThan } from '@components/cuMediaQueries';
 
 interface GridProps {
   largeGap?: boolean;

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { LayoutStyles } from './LayoutStyles';
-import { handleThrowError } from '@/helpers/handleThrowError';
+import { handleThrowError } from '@utils/handleThrowError';
 interface LayoutProps {
   primaryAside?: JSX.Element;
   secondaryAside?: JSX.Element;

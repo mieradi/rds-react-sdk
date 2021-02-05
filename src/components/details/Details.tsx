@@ -5,7 +5,7 @@
  * @returns returns desc
  */
 import React from 'react';
-import { DetailsStyles } from '@/components/details/DetailsStyles';
+import { DetailsStyles } from '@components/details/DetailsStyles';
 
 interface DetailsProps {
   children: React.ReactNode;

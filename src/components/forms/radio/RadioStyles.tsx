@@ -6,11 +6,12 @@ import styled from 'styled-components';
  * @returns returns desc
  */
 
-import { CheckBoxStyles } from '@/components/forms/checkbox/CheckBoxStyles';
+import { CheckBoxStyles } from '@components/forms/checkbox/CheckBoxStyles';
 
 export const RadioStyles = styled(CheckBoxStyles)`
   label::before {
     border-radius: 50%;
+    margin-top: 5px;
   }
 
   /* label::after { */

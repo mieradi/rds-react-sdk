@@ -1,7 +1,7 @@
 import React from 'react';
 import { BannerStyles } from './BannerStyles';
 import { UBlock } from '../UBlock/UBlock';
-import { Button, ButtonProps } from '@/components/button/Button';
+import { Button, ButtonProps } from '@components/button/Button';
 
 type BannerProps = {
   title?: string;

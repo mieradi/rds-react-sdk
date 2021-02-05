@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { greaterThan } from '@/components/cuMediaQueries';
-import { ButtonStyles } from '@/components/button/ButtonStyles';
+import { greaterThan } from '@components/cuMediaQueries';
+import { ButtonStyles } from '@components/button/ButtonStyles';
 
 interface ListingStylesProps {
   accordion?: boolean;

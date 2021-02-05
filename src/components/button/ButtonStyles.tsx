@@ -32,6 +32,7 @@ export const ButtonStyles = styled.a<ButtonStylesProps>`
   }
 
   /* handle ghost prop */
+  
   ${({ ghost }) =>
     ghost &&
     `

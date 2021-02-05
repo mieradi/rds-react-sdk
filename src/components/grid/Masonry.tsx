@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { greaterThan } from '../cuMediaQueries';
+import { greaterThan } from '@components/cuMediaQueries';
 
 export const Masonry = styled.div`
   ${greaterThan('s')`
@@ -22,5 +22,7 @@ export const Masonry = styled.div`
         width: 100%;
       }
     }
+
+
 `}
 `;

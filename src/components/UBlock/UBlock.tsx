@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { greaterThan } from '@/components/cuMediaQueries';
+import { greaterThan } from '@components/cuMediaQueries';
 
 type UBlockProps = {
   backgroundColor?: 'grey' | 'black' | 'white' | null;
