@@ -24,7 +24,7 @@ export const PanelStyles = styled.section<PanelStylesProps>`
     border-bottom: 1px solid var(--grey-yoda);
     margin-left: -20px;
     margin-right: -20px;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
     padding: 0 20px;
     position: relative;
 

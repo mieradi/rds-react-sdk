@@ -25,7 +25,7 @@ export const ListingStyles = styled.div<ListingStylesProps>`
   ul {
     list-style-type: none;
     margin: 0;
-    border-top: 1px solid var(--grey-yoda);
+    //border-top: 1px solid var(--grey-yoda);
     border-bottom: 1px solid var(--grey-yoda);
     li a {
       cursor: default;
