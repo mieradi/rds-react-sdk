@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { greaterThan } from '@components/cuMediaQueries';
 import { ButtonStyles } from '@components/button/ButtonStyles';
 import { SearchStyles } from '@components/search/SearchStyles';
@@ -38,8 +38,8 @@ export const BannerStyles = styled.div<BannerStylesProps>`
 
     ${({ backgroundShade }) =>
       backgroundShade === 'dark' &&
-      `
-      color: white !important;
+      css`
+        color: white !important;
       `};
   }
   /* Heading */
@@ -111,7 +111,7 @@ export const BannerStyles = styled.div<BannerStylesProps>`
  */
   ${({ imageSrc, backgroundShade, backgroundPosition }) =>
     imageSrc &&
-    `
+    css`
     background: url(${imageSrc});
     position: relative;
     background-size: cover;
@@ -130,13 +130,11 @@ export const BannerStyles = styled.div<BannerStylesProps>`
       background-color:rgba(0, 0, 0, 0.6);
       ${
         backgroundShade &&
+        css`
+          background-color: ${backgroundShade === 'light'
+            ? 'rgba(0, 0, 0, 0.3)'
+            : 'rgba(0, 0, 0, 0.75)'} !important;
         `
-      background-color: ${
-        backgroundShade === 'light'
-          ? 'rgba(0, 0, 0, 0.3)'
-          : 'rgba(0, 0, 0, 0.75)'
-      } !important
-      `
       }
     }
 
@@ -171,25 +169,24 @@ export const BannerStyles = styled.div<BannerStylesProps>`
 
   ${({ isIntranet }) =>
     isIntranet &&
-    `
-    margin-top: 100px !important;
-	margin-bottom: 0;
-	display: block;
-	text-align: left;
-    padding: 0 25px !important;
-    width: 100%;
-    section {
+    css`
+      margin-top: 100px !important;
+      margin-bottom: 0;
+      display: block;
+      text-align: left;
+      padding: 0 25px !important;
+      width: 100%;
+      section {
         max-width: 1024px;
         margin: 0 auto;
-    }
-    ${greaterThan('ll')`
+      }
+      ${greaterThan('ll')`
         padding: 0 !important;
     `}
-	h1 {
-		margin: 0;
-		padding:0;
-		font-size:15px;
-
-	}
-  `}
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 15px;
+      }
+    `}
 `;
