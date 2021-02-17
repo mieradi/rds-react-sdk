@@ -21,16 +21,25 @@ export const PanelStyles = styled.section<PanelStylesProps>`
   margin-bottom: 30px;
 
   > header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
     border-bottom: 1px solid var(--grey-yoda);
     margin-left: -20px;
     margin-right: -20px;
     margin-bottom: 20px;
     padding: 0 20px;
-    position: relative;
+    padding-bottom: 20px;
 
     h2 {
       font-size: var(--pixel16);
       border: none !important;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
     }
 
     p {
@@ -40,7 +49,7 @@ export const PanelStyles = styled.section<PanelStylesProps>`
 
     button {
       position: absolute;
-      top: -8px;
+      /* top: -8px; */
       right: 20px;
       svg {
         width: 20px;

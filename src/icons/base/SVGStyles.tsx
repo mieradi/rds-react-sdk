@@ -5,25 +5,30 @@
  * @returns returns desc
  */
 
-import styled from 'styled-components';
-import { SVGBase } from '@icons/base/SVGBase';
-interface SVGStylesProps {
+import styled, { css } from 'styled-components';
+import { ISVG, SVGBase } from '@icons/base/SVGBase';
+interface SVGStylesProps extends ISVG {
   fill?: string;
   hoverColor?: string;
   isActive?: boolean;
   isClickable?: boolean;
+  width?: number;
+  viewBox?: string;
 }
 
 export const SVGStyles = styled(SVGBase)<SVGStylesProps>`
+  width: ${({ width }) =>
+    width ? width + 'px !important' : '25px !important'};
   fill: ${({ fill }) => (fill ? fill : 'var(--black)')};
+  fill: var(--black);
   ${({ isClickable }) =>
     isClickable &&
-    `
-    cursor: pointer;
-  `}
+    css`
+      cursor: pointer;
+    `};
 
   &:hover {
-    fill: ${({ hoverColor }) => (hoverColor ? hoverColor : 'inherit')};
+    fill: ${({ hoverColor }) => (hoverColor ? hoverColor : 'var(--black)')};
   }
   /* Active state where color is the same as the hover state */
   ${({ isActive, hoverColor }) =>

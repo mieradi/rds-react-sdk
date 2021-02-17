@@ -25,7 +25,7 @@ export const Modal: React.FC<ModalProps> = ({
     <ModalStyles>
       <InnerModalWrapperStyles>
         <span {...(handleClose && { onClick: handleClose })}>
-          <SVG isClickable fill={'white'} width="15px">
+          <SVG isClickable fill={'white'} width={15}>
             <path d="M15.396 12L24 20.604 20.604 24 12 15.396 3.396 24 0 20.604 8.604 12 0 3.396 3.396 0 12 8.604 20.604 0 24 3.396z" />
           </SVG>
         </span>

@@ -90,7 +90,7 @@ const ToastCloseButton: React.FC<ToastCloseButtonProps> = ({
         handleDelete([...filtered]);
       }}
     >
-      <SVG width="15px" hoverColor="var(--black)" fill="var(--grey)">
+      <SVG width={15} hoverColor="var(--black)" fill="var(--grey)">
         <path d="M15.396 12L24 20.604 20.604 24 12 15.396 3.396 24 0 20.604 8.604 12 0 3.396 3.396 0 12 8.604 20.604 0 24 3.396z" />
       </SVG>
     </ToastCloseButtonWrapperStyles>
@@ -123,7 +123,7 @@ const ToastIcon: React.FC<ToastIconProps> = ({ type }): JSX.Element => {
     ),
   };
 
-  return <SVG width="30px">{toastIcons[type]}</SVG>;
+  return <SVG width={30}>{toastIcons[type]}</SVG>;
 };
 
 /**
