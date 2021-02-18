@@ -9,7 +9,8 @@ import React from 'react';
 import { LayoutStyles } from './LayoutStyles';
 import { handleThrowError } from '@utils/handleThrowError';
 interface LayoutProps {
-  primaryAside?: JSX.Element;
+  children: React.ReactNode;
+  primaryAside: JSX.Element;
   secondaryAside?: JSX.Element;
   AM?: boolean;
   isIntranet?: boolean;
@@ -35,16 +36,16 @@ export const Layout: React.FC<LayoutProps> = ({
   };
   if ((AM && MA) || (AMA && MA) || (AMA && AM))
     handleThrowError(
-      'Layouts can only accept one Layout option. Please choose AM, MA, OR AMA'
+      "Layouts can only accept one Layout option. Please choose AM, MA, OR AMA"
     );
   return (
     <LayoutStyles {...layoutProps}>
       {!primaryAside &&
-        handleThrowError('Layouts return one or two aside components.')}
-      {!children && handleThrowError('Layouts must return child elements.')}
+        handleThrowError("Layouts return one or two aside components.")}
+      {!children && handleThrowError("Layouts must return child elements.")}
       {AMA &&
         !secondaryAside &&
-        handleThrowError('AMA Layout must return a secondaryAside.')}
+        handleThrowError("AMA Layout must return a secondaryAside.")}
       {/* AM: aside/main layout */}
       {AM && !MA && primaryAside}
       {AM && !MA && <div>{children}</div>}
