@@ -29,9 +29,9 @@ export const PanelStyles = styled.section<PanelStylesProps>`
 
     position: relative;
     border-bottom: 1px solid var(--grey-yoda);
-    margin-left: -20px;
-    margin-right: -20px;
-    //margin-bottom: 20px;
+    /* margin-left: -20px;
+    margin-right: -20px; */
+    margin-bottom: 20px;
     padding: 0 20px;
     padding-bottom: 20px;
 
