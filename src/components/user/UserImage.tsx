@@ -7,16 +7,9 @@
 
 import React from 'react';
 import { UserImageStyles } from '@components/user/UserImageStyles';
+import { IUserImage } from '../../types/user/IUserImage';
 
-interface UserImageProps {
-  imageUrl?: string;
-  alt?: string;
-  firstName?: string;
-  lastName?: string;
-  isProfile?: boolean;
-}
-
-export const UserImage: React.FC<UserImageProps> = ({
+export const UserImage: React.FC<IUserImage> = ({
   imageUrl,
   alt,
   firstName,
