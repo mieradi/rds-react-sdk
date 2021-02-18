@@ -20,7 +20,8 @@ export const UserImageStyles = styled.div<UserImageStylesProps>`
   width: ${({ isProfile }) => (isProfile ? '150px' : '50px')};
   height: ${({ isProfile }) => (isProfile ? '150px' : '50px')};
   margin: 0 auto;
+  margin-right: ${({ isProfile }) => (isProfile ? 'inherit' : '15px')};
   p {
-    font-size: 30px;
+    font-size: ${({ isProfile }) => (isProfile ? '30px' : '15px')};
   }
 `;
