@@ -5,23 +5,29 @@
  * @returns returns desc
  */
 
-import React from 'react';
-import { UBlock } from '@/components/UBlock/UBlock';
-import { FormStyles } from '@/components/forms/form/FormStyles';
+import React, { Children, cloneElement } from 'react';
+import { UBlock } from '@components/UBlock/UBlock';
+import { FormStyles } from '@components/forms/form/FormStyles';
+import { useForm } from 'react-hook-form';
 
-interface FormProps {
+interface IForm {
   children: React.ReactNode;
-  handleSubmit(event: React.FormEvent<HTMLFormElement>): void;
+  handleOnSubmit: (e: React.FormEvent) => void;
 }
-
-export const Form: React.FC<FormProps> = ({
+export const Form: React.FC<IForm> = ({
   children,
-  handleSubmit,
+  handleOnSubmit,
 }): JSX.Element => {
+  const { register, errors, handleSubmit, control } = useForm({
+    mode: 'all',
+  });
+
   return (
     <UBlock>
-      <FormStyles {...(handleSubmit && { onSubmit: handleSubmit })}>
-        {children}
+      <FormStyles onSubmit={handleSubmit(handleOnSubmit)}>
+        {Children.map(children, function (child: any) {
+          return cloneElement(child, { control, errors, register });
+        })}
       </FormStyles>
     </UBlock>
   );

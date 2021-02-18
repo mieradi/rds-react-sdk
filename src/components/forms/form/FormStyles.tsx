@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { greaterThan } from '@/components/cuMediaQueries';
+import { greaterThan } from '@components/cuMediaQueries';
 
 interface FormStylesProps {
   isRequired?: boolean;
@@ -17,6 +17,11 @@ export const FormStyles = styled.form<FormStylesProps>`
   /* .form__field:not(:last-child) {
     margin-bottom: 30px;
   } */
+  input:not(input[type='file'], input[type='radio'], input[type='checkbox']),
+  div,
+  textarea {
+    margin-bottom: 30px;
+  }
 
   margin-bottom: 30px;
   label,

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { SVG } from '@/icons/base/SVG';
+import { SVG } from '@icons/base/SVG';
 interface ListItemProps {
   event?: boolean;
   video?: boolean;

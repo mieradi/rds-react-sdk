@@ -6,13 +6,14 @@
  */
 
 import React from 'react';
-import { ButtonStyles } from '@/components/button/ButtonStyles';
-import { handleThrowError } from '@/helpers/handleThrowError';
+import { ButtonStyles } from '@components/button/ButtonStyles';
+import { handleThrowError } from '@utils/handleThrowError';
 
 export interface ButtonProps {
   handleClick?: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void;
+  isLoading?: boolean;
   title: string;
   url?: string;
   icon?: JSX.Element;
@@ -21,18 +22,20 @@ export interface ButtonProps {
   full?: boolean;
   center?: boolean;
   isSubmit?: boolean;
+  disabled?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   icon,
-  url,
   title,
   ghost,
   grey,
   full,
   center,
   handleClick,
+  isLoading,
   isSubmit,
+  disabled,
 }): JSX.Element => {
   const buttonProps = {
     icon,
@@ -40,19 +43,20 @@ export const Button: React.FC<ButtonProps> = ({
     grey,
     full,
     center,
+    disabled,
+    isLoading,
   };
+
   return (
     <ButtonStyles
-      type={isSubmit ? 'submit' : 'text'}
-      className={isSubmit ? 'form__submit' : ''}
-      {...(!handleClick && url && { href: url })}
       {...buttonProps}
-      {...(handleClick && !url && { onClick: handleClick })}
+      {...(!handleClick && isSubmit && { type: 'submit' })}
+      {...(handleClick && !isSubmit && { onClick: handleClick })}
       {...(handleClick &&
-        url && {
+        isSubmit && {
           onClick: () =>
             handleThrowError(
-              'Button can not use both the url and handleClick prop together. Please choose only one.'
+              'Button can not have both the isSubmit and handleClick prop together. Please choose only one.'
             ),
         })}
     >

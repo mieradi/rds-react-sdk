@@ -12,10 +12,11 @@ interface SVGProps {
   handleClick?: (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
   children: React.ReactNode;
   fill?: string;
-  width?: string;
+  width?: number;
   hoverColor?: string;
   isActive?: boolean;
   isClickable?: boolean;
+  viewBox?: string;
 }
 
 export const SVG: React.FC<SVGProps> = ({
@@ -25,10 +26,12 @@ export const SVG: React.FC<SVGProps> = ({
   isActive,
   handleClick,
   isClickable,
+  viewBox,
   children,
 }): JSX.Element => {
   return (
     <SVGStyles
+      viewBox={viewBox}
       width={width}
       fill={fill}
       hoverColor={hoverColor}

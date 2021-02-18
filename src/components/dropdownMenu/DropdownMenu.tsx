@@ -6,13 +6,13 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import { DropdownMenuStyles } from '@/components/dropdownMenu/DropdownMenuStyles';
-import { SubMenuStyles } from '@/components/submenu/SubMenuStyles';
+import { DropdownMenuStyles } from '@components/dropdownMenu/DropdownMenuStyles';
+import { SubMenuStyles } from '@components/submenu/SubMenuStyles';
 import {
   handleDetectOutsideClick,
   handleClickInside,
   IDetectClick,
-} from '@/helpers/handleDetectClick';
+} from '@utils/handleDetectClick';
 
 interface DropdownMenuProps {
   children: React.ReactNode;

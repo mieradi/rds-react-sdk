@@ -5,32 +5,28 @@
  * @returns returns desc
  */
 
-import React from 'react';
-import { CheckBoxStyles } from '@/components/forms/checkbox/CheckBoxStyles';
-import { FormDescription } from '@/components/forms/description/FormDescription';
-import { FormGroupStyles } from '@/components/forms/group/FormGroupStyles';
+import React, { Children, cloneElement } from 'react';
+import { CheckBoxStyles } from '@components/forms/checkbox/CheckBoxStyles';
+import { IReactHookFormProps } from '../../../types/validation/IReactHookFormProps';
 
-interface CheckBoxProps {
-  handleOnChange(event: React.FormEvent<HTMLFieldSetElement>):void;
+interface CheckBoxProps extends IReactHookFormProps {
   description?: String;
   legend?: String;
   isGroup?: boolean;
   children: React.ReactNode;
 }
 
-export const CheckBox: React.FC<CheckBoxProps> = ({
-  children,
-  description,
-  legend,
-  isGroup,
-  handleOnChange,
-}): JSX.Element => {
+export const CheckBox: React.FC<CheckBoxProps> = (props): JSX.Element => {
+  const { children, description, legend, register, errors, control } = props;
+
   return (
     <CheckBoxStyles>
-      <fieldset {...(handleOnChange && { onChange: handleOnChange })}>
+      <fieldset>
         {legend && <legend>{legend}</legend>}
-        {description && <FormDescription description={description} />}
-        {isGroup ? <FormGroupStyles>{children}</FormGroupStyles> : children}
+        {description && <p>{description}</p>}
+        {Children.map(children, function (child: any) {
+          return cloneElement(child, { register, errors, control });
+        })}
       </fieldset>
     </CheckBoxStyles>
   );

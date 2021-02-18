@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { greaterThan } from '../cuMediaQueries';
+import { greaterThan } from '@components/cuMediaQueries';
 // interface DetailsStylesProps {}
 
 export const DetailsStyles = styled.div`

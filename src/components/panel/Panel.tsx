@@ -6,26 +6,33 @@
  */
 
 import React, { useState } from 'react';
+import { PanelActionsStyles } from './PanelActionsStyles';
 import { PanelStyles } from './PanelStyles';
 
 interface PanelProps {
   title?: string;
   children: React.ReactNode;
   submenu?: React.ReactNode;
+  actions?: React.ReactNode;
 }
 
 export const Panel: React.FC<PanelProps> = ({
   children,
   title,
   submenu,
+  actions,
 }): JSX.Element => {
   const [subMenuIsActive, setSubMenuIsActive] = useState(false);
   const hasValidSubMenu = React.isValidElement(submenu);
+  const hasValidActions = React.isValidElement(actions);
 
   return (
     <PanelStyles hasSubmenu={hasValidSubMenu}>
       <header>
         <h2>{title}</h2>
+
+        {hasValidActions && <PanelActionsStyles>{actions}</PanelActionsStyles>}
+
         {hasValidSubMenu && (
           <button
             onClick={() => setSubMenuIsActive(subMenuIsActive ? false : true)}

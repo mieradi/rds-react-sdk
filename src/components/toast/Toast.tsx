@@ -11,8 +11,8 @@ import {
   ToastContainerStyles,
   ToastCloseButtonWrapperStyles,
   ToastContentWrapperStyles,
-} from '@/components/toast/ToastStyles';
-import { SVG } from '@/icons/base/SVG';
+} from '@components/toast/ToastStyles';
+import { SVG } from '@icons/base/SVG';
 
 interface ToastObjectProps {
   id: string;
@@ -90,7 +90,7 @@ const ToastCloseButton: React.FC<ToastCloseButtonProps> = ({
         handleDelete([...filtered]);
       }}
     >
-      <SVG width="15px" hoverColor="var(--black)" fill="var(--grey)">
+      <SVG width={15} hoverColor="var(--black)" fill="var(--grey)">
         <path d="M15.396 12L24 20.604 20.604 24 12 15.396 3.396 24 0 20.604 8.604 12 0 3.396 3.396 0 12 8.604 20.604 0 24 3.396z" />
       </SVG>
     </ToastCloseButtonWrapperStyles>
@@ -108,7 +108,7 @@ interface ToastIconProps {
   type: string;
 }
 const ToastIcon: React.FC<ToastIconProps> = ({ type }): JSX.Element => {
-  const toastIcons = {
+  const toastIcons: { [type: string]: JSX.Element } = {
     error: (
       <path d="M13.339 1.75a1.54 1.54 0 0 0-1.33-.75c-.551 0-1.055.285-1.33.75L.206 19.749a1.47 1.47 0 0 0 0 1.502c.29.465.795.751 1.33.751h20.946c.55 0 1.056-.285 1.315-.75.265-.465.27-1.033.015-1.503L13.34 1.75zm.2 17.246H10.48v-3.005h3.059v3.005zm0-4.506H10.48V8.48h3.059v6.01z" />
     ),
@@ -123,7 +123,7 @@ const ToastIcon: React.FC<ToastIconProps> = ({ type }): JSX.Element => {
     ),
   };
 
-  return <SVG width="30px">{toastIcons[type]}</SVG>;
+  return <SVG width={30}>{toastIcons[type]}</SVG>;
 };
 
 /**

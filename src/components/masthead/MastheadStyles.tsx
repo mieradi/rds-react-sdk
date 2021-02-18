@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { greaterThan } from '@/components/cuMediaQueries';
+import { greaterThan } from '@components/cuMediaQueries';
 type MastheadStylesProps = {
   isScrollingUp?: boolean;
 };
@@ -18,6 +18,9 @@ export const MastheadStyles = styled.div<MastheadStylesProps>`
   nav {
     width: 100%;
     margin-right: 50px;
+    @media only screen and (max-width: 1024px) {
+      display: none;
+    }
   }
 
   .c-nav--topnav {
@@ -145,7 +148,7 @@ interface MastheadActionsStylesProps {
 export const MastheadActionsStyles = styled.ul<MastheadActionsStylesProps>`
   justify-content: flex-end;
   margin-left: auto;
-
+  margin-bottom: 0;
   li {
     border-left: 1px solid var(--grey-yoda);
     list-style: none;
@@ -196,4 +199,52 @@ export const MastheadActionsStyles = styled.ul<MastheadActionsStylesProps>`
         }
         }
     `}
+`;
+
+interface MastheadHamburgerStylesProp {
+  mobileIsOpen: boolean;
+}
+
+export const MastheadHamburgerStyles = styled(
+  MastheadActionsStyles
+)<MastheadHamburgerStylesProp>`
+  margin-left: 0;
+  li {
+    @media only screen and (min-width: 1025px) {
+      display: none;
+    }
+  }
+  li > div {
+    height: 100%;
+    width: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    cursor: pointer;
+  }
+  .line {
+    height: 2px;
+    width: 20px;
+    background: #222;
+    transition: all 0.2s ease;
+  }
+  .lineTop {
+    transform: ${({ mobileIsOpen }) =>
+      mobileIsOpen ? 'rotate(45deg)' : 'none'};
+    transform-origin: top left;
+    margin-bottom: 5px;
+  }
+  .lineMiddle {
+    opacity: ${({ mobileIsOpen }) => (mobileIsOpen ? 0 : 1)};
+    transform: ${({ mobileIsOpen }) =>
+      mobileIsOpen ? 'translateX(-16px)' : 'none'};
+  }
+  .lineBottom {
+    transform: ${({ mobileIsOpen }) =>
+      mobileIsOpen ? 'translateX(-1px) rotate(-45deg)' : 'none'};
+    transform-origin: top left;
+    margin-top: 5px;
+  }
 `;

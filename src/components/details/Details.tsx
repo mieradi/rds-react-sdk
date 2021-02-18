@@ -5,11 +5,15 @@
  * @returns returns desc
  */
 import React from 'react';
-import { DetailsStyles } from '@/components/details/DetailsStyles';
+import { DetailsStyles } from '@components/details/DetailsStyles';
+import { UserImage } from '@components/user/UserImage';
 
 interface DetailsProps {
   children: React.ReactNode;
-  img?: { src: string; alt: string };
+  firstName?: string;
+  lastName?: string;
+  imageUrl?: string;
+  imageAlt?: string;
   caption?: {
     topText: string;
     bottomText?: string;
@@ -18,16 +22,22 @@ interface DetailsProps {
 
 export const Details: React.FC<DetailsProps> = ({
   children,
-  img,
+  imageUrl,
+  imageAlt,
+  firstName,
+  lastName,
   caption,
 }): JSX.Element => {
   return (
     <DetailsStyles>
-      <div className={`b-details ${img && 'b-details--figure'}`}>
-        {img && (
+      <div className={`b-details ${imageUrl && 'b-details--figure'}`}>
+        {imageUrl ? (
           <div className="details__aside">
             <figure>
-              <img src={img.src} alt={img.alt} />
+              <img
+                src={imageUrl}
+                alt={`Profile image of ${firstName + ' ' + lastName}`}
+              />
               {caption && (
                 <figcaption>
                   {caption && caption.topText}
@@ -37,6 +47,14 @@ export const Details: React.FC<DetailsProps> = ({
               )}
             </figure>
           </div>
+        ) : (
+          <UserImage
+            isProfile
+            firstName={firstName}
+            lastName={lastName}
+            imageUrl={imageUrl}
+            alt={imageAlt}
+          />
         )}
         <div className="details__meta">
           <dl className="u-link">{children}</dl>
