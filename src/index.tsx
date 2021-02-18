@@ -28,6 +28,7 @@ import { Modal } from '@components/modal/Modal';
 import { Toast } from '@components/toast/Toast';
 import { SubMenu } from '@components/submenu/SubMenu';
 import { DropdownMenu } from '@components/dropdownMenu/DropdownMenu';
+import { UserImage } from '@components/user/UserImage';
 
 import { SVG } from '@icons/base/SVG';
 
@@ -61,5 +62,6 @@ export {
   Search,
   Modal,
   Toast,
+  UserImage,
   SubMenu,
 };
