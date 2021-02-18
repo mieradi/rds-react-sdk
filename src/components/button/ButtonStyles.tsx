@@ -6,13 +6,13 @@ interface ButtonStylesProps {
   grey?: boolean;
   full?: boolean;
   center?: boolean;
-  isLoading: boolean;
-  disabled: boolean;
+  isLoading?: boolean;
+  disabled?: boolean;
 }
 
 interface IButtonAttrs {
-  isLoading: boolean;
-  disabled: boolean;
+  isLoading?: boolean;
+  disabled?: boolean;
 }
 
 export const ButtonStyles = styled.button.attrs((props: IButtonAttrs) => {

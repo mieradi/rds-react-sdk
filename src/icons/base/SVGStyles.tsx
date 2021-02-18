@@ -20,7 +20,6 @@ export const SVGStyles = styled(SVGBase)<SVGStylesProps>`
   width: ${({ width }) =>
     width ? width + 'px !important' : '25px !important'};
   fill: ${({ fill }) => (fill ? fill : 'var(--black)')};
-  fill: var(--black);
   ${({ isClickable }) =>
     isClickable &&
     css`

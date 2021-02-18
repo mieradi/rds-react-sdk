@@ -13,7 +13,7 @@ export interface ButtonProps {
   handleClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void;
-  isLoading: boolean;
+  isLoading?: boolean;
   title: string;
   url?: string;
   icon?: JSX.Element;
@@ -22,7 +22,7 @@ export interface ButtonProps {
   full?: boolean;
   center?: boolean;
   isSubmit?: boolean;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
