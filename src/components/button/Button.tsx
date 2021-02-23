@@ -10,38 +10,15 @@ import { ButtonStyles } from '@components/button/ButtonStyles';
 import { handleThrowError } from '@utils/handleThrowError';
 import { IButton } from '../../types/button/IButton';
 
-export const Button: React.FC<IButton> = ({
-  icon,
-  title,
-  ghost,
-  grey,
-  full,
-  center,
-  handleClick,
-  isLoading,
-  isSubmit,
-  disabled,
-  backgroundColor,
-  iconPosition,
-}): JSX.Element => {
-  const buttonProps = {
-    icon,
-    ghost,
-    grey,
-    full,
-    center,
-    disabled,
-    isLoading,
-    backgroundColor,
-    iconPosition,
-  };
+export const Button: React.FC<IButton> = (props): JSX.Element => {
+  const { icon, iconPosition, isSubmit, handleClick, title } = props;
 
   const iconHasRightAlignmentOrDefault =
     (icon && iconPosition === 'right') || (icon && !iconPosition);
 
   return (
     <ButtonStyles
-      {...buttonProps}
+      {...props}
       {...(!handleClick && isSubmit && { type: 'submit' })}
       {...(handleClick && !isSubmit && { onClick: handleClick })}
       {...(handleClick &&

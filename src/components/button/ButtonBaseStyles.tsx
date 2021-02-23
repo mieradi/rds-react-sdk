@@ -27,15 +27,11 @@ export const ButtonBaseStyles = css<IButtonBaseStyles>`
   font-size: var(--pixel16);
   line-height: 1.75;
   transition: background 200ms, box-shadow 200ms;
-  background-color: ${({ backgroundColor }) =>
-    backgroundColor ? backgroundColor : 'var(--black)'};
   color: white;
-  border-radius: 9999px;
   box-shadow: 0 4px 9px rgba(black, 0.25);
   display: inline-flex;
   text-decoration: none;
   margin: 15px 15px 15px 0;
-
   overflow: hidden;
   &:hover {
     text-decoration: none;
@@ -83,7 +79,7 @@ ${({ grey }) =>
     grey &&
     css`
       background-color: var(--grey);
-      color: var(--black) !important;
+      color: var(--black);
       border: 1px solid var(--grey-yoda);
       box-shadow: 0 4px 9px rgba(black, 0.05);
 
@@ -136,5 +132,6 @@ ${({ icon }) =>
       }
       svg {
         margin-right: 8px;
+      }
     `}
 `;

@@ -12,6 +12,10 @@ export const ButtonStyles = styled.button.attrs((props: IButtonAttrs) => {
   };
 })<IButtonBaseStyles>`
   ${ButtonBaseStyles}
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor ? backgroundColor : 'var(--black)'};
+  border-radius: 9999px;
+  color: white;
   &:hover {
     background-color: var(--red);
   }
