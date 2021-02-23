@@ -10,7 +10,7 @@ import styled from 'styled-components';
 interface ModalStylesProps {}
 
 export const ModalStyles = styled.div<ModalStylesProps>`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;

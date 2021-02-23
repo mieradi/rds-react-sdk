@@ -93,21 +93,10 @@ export const AsideStyles = styled.aside<AsideStylesProps>`
       display: block;
       border-bottom: none;
 
-      button {
-        display: flex;
-        align-items: center;
-        font-size: $pixel14;
-        color: $grey-vader;
-        padding: 8px 10px;
-      }
 
-      /* svg {
-        width: 8px;
-        height: 8px;
-        fill: $grey-vader;
-        margin-right: 5px;
-      } */
-    }
+
+
+
 `}
 
   .nav__expand--open {
