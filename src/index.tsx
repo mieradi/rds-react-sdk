@@ -1,6 +1,8 @@
 import './styles.scss';
 import { Card } from '@components/card/Card';
 import { Button } from '@components/button/Button';
+import { CTALink } from '@components/CTALink/CTALink';
+import { CustomLink } from '@components/customLink/CustomLink';
 import { Details } from '@components/details/Details';
 import { Listing } from '@components/listing/Listing/Listing';
 import { ListItem } from '@components/listing/ListItem';
@@ -64,4 +66,6 @@ export {
   Toast,
   UserImage,
   SubMenu,
+  CTALink,
+  CustomLink,
 };

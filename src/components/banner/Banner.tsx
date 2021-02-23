@@ -1,12 +1,13 @@
 import React from 'react';
 import { BannerStyles } from './BannerStyles';
 import { UBlock } from '../UBlock/UBlock';
-import { Button, ButtonProps } from '@components/button/Button';
+import { Button } from '@components/button/Button';
+import { IButton } from '../../types/button/IButton';
 
 type BannerProps = {
   title?: string;
   isIntranet?: boolean;
-  buttons?: ButtonProps[];
+  buttons?: IButton[];
   imageSrc?: string;
   backgroundShade?: 'light' | 'dark';
   textShade?: 'light' | 'dark';

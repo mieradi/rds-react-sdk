@@ -8,24 +8,9 @@
 import React from 'react';
 import { ButtonStyles } from '@components/button/ButtonStyles';
 import { handleThrowError } from '@utils/handleThrowError';
+import { IButton } from '../../types/button/IButton';
 
-export interface ButtonProps {
-  handleClick?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void;
-  isLoading?: boolean;
-  title: string;
-  url?: string;
-  icon?: JSX.Element;
-  ghost?: boolean;
-  grey?: boolean;
-  full?: boolean;
-  center?: boolean;
-  isSubmit?: boolean;
-  disabled?: boolean;
-}
-
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<IButton> = ({
   icon,
   title,
   ghost,
@@ -36,6 +21,8 @@ export const Button: React.FC<ButtonProps> = ({
   isLoading,
   isSubmit,
   disabled,
+  backgroundColor,
+  iconPosition,
 }): JSX.Element => {
   const buttonProps = {
     icon,
@@ -45,7 +32,12 @@ export const Button: React.FC<ButtonProps> = ({
     center,
     disabled,
     isLoading,
+    backgroundColor,
+    iconPosition,
   };
+
+  const iconHasRightAlignmentOrDefault =
+    (icon && iconPosition === 'right') || (icon && !iconPosition);
 
   return (
     <ButtonStyles
@@ -60,8 +52,9 @@ export const Button: React.FC<ButtonProps> = ({
             ),
         })}
     >
-      {icon && icon}
+      {icon && iconPosition === 'left' && icon}
       {title}
+      {iconHasRightAlignmentOrDefault && icon}
     </ButtonStyles>
   );
 };
