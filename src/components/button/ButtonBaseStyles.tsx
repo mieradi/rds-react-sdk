@@ -110,7 +110,7 @@ ${({ grey }) =>
   ${({ full }) =>
     full &&
     css`
-      margin: 0px !important;
+      /* margin: 0px !important; */
       width: 100%;
     `}
 
