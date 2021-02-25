@@ -40,19 +40,6 @@ export const ButtonBaseStyles = css<IButtonBaseStyles>`
     color: white;
   }
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: var(--grey);
-      color: var(--grey-anakin);
-
-      &:hover {
-        background-color: var(--grey);
-        color: var(--grey-anakin);
-        cursor: default;
-      }
-    `};
-
   /* handle ghost prop */
   ${({ ghost }) =>
     ghost &&
@@ -134,4 +121,20 @@ ${({ icon }) =>
         margin-right: 8px;
       }
     `}
+
+      ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: var(--grey) !important;
+      color: var(--grey-anakin) !important;
+      svg path {
+        fill: var(--grey-anakin) !important;
+      }
+
+      &:hover {
+        background-color: var(--grey);
+        color: var(--grey-anakin);
+        cursor: default;
+      }
+    `};
 `;
