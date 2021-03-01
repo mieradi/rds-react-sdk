@@ -5,21 +5,21 @@
  * @returns removeListener function
  */
 
-
 export interface IDetectClick {
-  ref: React.RefObject<HTMLLIElement>,
-  setHasClickedOutsideTarget: React.Dispatch<React.SetStateAction<boolean>>,
-  setDropdownIsActive: React.Dispatch<React.SetStateAction<boolean>>
- }
+  ref: React.RefObject<HTMLLIElement> | React.RefObject<HTMLButtonElement>;
+  setHasClickedOutsideTarget: React.Dispatch<React.SetStateAction<boolean>>;
+  setDropdownIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-
-export function handleDetectOutsideClick(args:IDetectClick): Function {
+export function handleDetectOutsideClick(args: IDetectClick): Function {
   document.addEventListener('mousedown', (e: MouseEvent) =>
-    handleClickOutside(e,args)
+    handleClickOutside(e, args)
   );
   return () =>
-    document.removeEventListener('mousedown', (e: MouseEvent) => handleClickOutside(e,args));
-};
+    document.removeEventListener('mousedown', (e: MouseEvent) =>
+      handleClickOutside(e, args)
+    );
+}
 
 /**
  * @name handleClickInside
@@ -28,7 +28,9 @@ export function handleDetectOutsideClick(args:IDetectClick): Function {
  * @returns void - react set state event
  */
 
-export const handleClickInside = (setHasClickedOutsideTarget: React.Dispatch<React.SetStateAction<boolean>>): void => {
+export const handleClickInside = (
+  setHasClickedOutsideTarget: React.Dispatch<React.SetStateAction<boolean>>
+): void => {
   setHasClickedOutsideTarget(false);
 };
 
@@ -40,9 +42,7 @@ export const handleClickInside = (setHasClickedOutsideTarget: React.Dispatch<Rea
  * @returns void - sets react state
  */
 
-const handleClickOutside = (e: MouseEvent,
-args: IDetectClick
-): void => {
+const handleClickOutside = (e: MouseEvent, args: IDetectClick): void => {
   if (args.ref.current && !args.ref.current.contains(e.target as Node)) {
     args.setHasClickedOutsideTarget(true);
     args.setDropdownIsActive(false);

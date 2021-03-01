@@ -5,7 +5,11 @@
  * @returns returns desc
  */
 
-import React, { useState } from 'react';
+import {
+  IDetectClick,
+  handleDetectOutsideClick,
+} from '@utils/handleDetectClick';
+import React, { useEffect, useRef, useState } from 'react';
 import { PanelActionsStyles } from './PanelActionsStyles';
 import { PanelStyles } from './PanelStyles';
 
@@ -22,9 +26,24 @@ export const Panel: React.FC<PanelProps> = ({
   submenu,
   actions,
 }): JSX.Element => {
-  const [subMenuIsActive, setSubMenuIsActive] = useState(false);
+  const [dropdownIsActive, setDropdownIsActive] = useState<boolean>(false);
   const hasValidSubMenu = React.isValidElement(submenu);
   const hasValidActions = React.isValidElement(actions);
+  const [
+    hasClickedOutsideTarget,
+    setHasClickedOutsideTarget,
+  ] = useState<boolean>(false);
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const args: IDetectClick = {
+      ref: buttonRef,
+      setDropdownIsActive,
+      setHasClickedOutsideTarget,
+    };
+    handleDetectOutsideClick(args);
+  }, [hasClickedOutsideTarget]);
 
   return (
     <PanelStyles hasSubmenu={hasValidSubMenu}>
@@ -35,7 +54,8 @@ export const Panel: React.FC<PanelProps> = ({
 
         {hasValidSubMenu && (
           <button
-            onClick={() => setSubMenuIsActive(subMenuIsActive ? false : true)}
+            ref={buttonRef}
+            onClick={() => setDropdownIsActive(dropdownIsActive ? false : true)}
           >
             <svg
               aria-hidden="true"
@@ -46,7 +66,7 @@ export const Panel: React.FC<PanelProps> = ({
             </svg>
           </button>
         )}
-        {hasValidSubMenu && subMenuIsActive && submenu}
+        {hasValidSubMenu && dropdownIsActive && submenu}
       </header>
       {children}
     </PanelStyles>
