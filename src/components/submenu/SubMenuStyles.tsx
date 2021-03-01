@@ -5,7 +5,7 @@
  * @returns returns desc
  */
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface SubMenuStylesProps {
   position?: string;
@@ -17,7 +17,7 @@ export const SubMenuStyles = styled.ul<SubMenuStylesProps>`
   list-style: none;
   margin: 0;
   padding: 0;
-  top: 20px;
+  top: 28px;
   border-top: 4px solid;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
@@ -86,26 +86,24 @@ export const SubMenuStyles = styled.ul<SubMenuStylesProps>`
 
   ${({ position }) =>
     position === 'right' &&
-    `
-
-    right: 0;
-    left: auto;
-
-    /* arrow */
-    &::before {
-      top: -16px;
-      right: 9px;
+    css`
+      right: -22px;
       left: auto;
-    }
 
-    /* arrow outline */
-    &::after {
-      top: -17px;
-      right: 7px;
-      left: auto;
-    }
+      /* arrow */
+      &::before {
+        top: -16px;
+        right: 9px;
+        left: auto;
+      }
 
-  `}
+      /* arrow outline */
+      &::after {
+        top: -17px;
+        right: 7px;
+        left: auto;
+      }
+    `}
 
   ${({ hasDividers }) =>
     hasDividers &&

@@ -64,9 +64,9 @@ export const Panel: React.FC<PanelProps> = ({
             >
               <path d="M2.77 14.538A2.77 2.77 0 1 0 2.77 9a2.77 2.77 0 0 0 0 5.538zm9.23 0A2.77 2.77 0 1 0 12 9a2.77 2.77 0 0 0 0 5.538zm12-2.769a2.77 2.77 0 1 1-5.538 0 2.77 2.77 0 0 1 5.538 0z"></path>
             </svg>
+            {hasValidSubMenu && dropdownIsActive && submenu}
           </button>
         )}
-        {hasValidSubMenu && dropdownIsActive && submenu}
       </header>
       {children}
     </PanelStyles>
