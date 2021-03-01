@@ -19,7 +19,7 @@ export const Form: React.FC<IForm> = ({
   handleOnSubmit,
 }): JSX.Element => {
   const { register, errors, handleSubmit, control } = useForm({
-    mode: 'all',
+    mode: 'onBlur',
   });
 
   return (
