@@ -18,6 +18,7 @@ interface IInput extends IFormProps {
 
 export const Input: React.FC<IInput> = (props): JSX.Element => {
   const {
+    disabled,
     handleOnChange,
     inputType,
     placeholder,
@@ -38,6 +39,8 @@ export const Input: React.FC<IInput> = (props): JSX.Element => {
     <InputStyles hasError={handleHasError(errors, name)}>
       {label && !isSelectable && <label htmlFor={id}>{label}</label>}
       <input
+        aria-disabled={disabled}
+        disabled={disabled}
         {...(handleOnChange && { onChange: handleOnChange })}
         {...(handleOnClick && { onClick: handleOnClick })}
         {...(isSelectable && { checked: isChecked })}

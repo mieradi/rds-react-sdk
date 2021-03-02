@@ -21,6 +21,7 @@ interface TextAreaProps extends IFormProps {
 
 export const TextArea: React.FC<TextAreaProps> = (props): JSX.Element => {
   const {
+    disabled,
     handleOnChange,
     description,
     label,
@@ -41,6 +42,8 @@ export const TextArea: React.FC<TextAreaProps> = (props): JSX.Element => {
         {label && <label htmlFor="textarea">{label}</label>}
         {description && <p>{description}</p>}
         <textarea
+          disabled={disabled}
+          aria-disabled={disabled}
           {...(handleOnChange && { onChange: handleOnChange })}
           id={id}
           name={name}

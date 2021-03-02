@@ -14,14 +14,23 @@ interface RadioProps extends IReactHookFormProps {
   legend?: String;
   isGroup?: boolean;
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
 export const Radio: React.FC<RadioProps> = (props): JSX.Element => {
-  const { children, description, legend, register, errors, control } = props;
+  const {
+    children,
+    description,
+    legend,
+    register,
+    errors,
+    control,
+    disabled,
+  } = props;
 
   return (
     <RadioStyles>
-      <fieldset>
+      <fieldset disabled={disabled} aria-disabled={disabled}>
         {legend && <legend>{legend}</legend>}
         {description && <p>{description}</p>}
         {Children.map(children, function (child: any) {

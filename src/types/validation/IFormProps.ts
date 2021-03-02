@@ -1,7 +1,7 @@
-import { IReactHookFormProps } from "./IReactHookFormProps";
-import { IValidationRules } from "./IValidationRules";
+import { IReactHookFormProps } from './IReactHookFormProps';
+import { IValidationRules } from './IValidationRules';
 
-export interface IFormProps extends IReactHookFormProps{
+export interface IFormProps extends IReactHookFormProps {
   id: string;
   name: string;
   label?: string;
@@ -11,4 +11,5 @@ export interface IFormProps extends IReactHookFormProps{
   value?: string | number | undefined;
   isChecked?: boolean;
   hasValidation?: boolean;
+  disabled?: boolean;
 }

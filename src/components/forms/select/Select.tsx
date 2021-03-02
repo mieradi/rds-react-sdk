@@ -20,6 +20,7 @@ interface ISelect extends IFormProps {
 
 export const Select: React.FC<ISelect> = (props): JSX.Element => {
   const {
+    disabled,
     handleOnChange,
     id,
     name,
@@ -39,6 +40,8 @@ export const Select: React.FC<ISelect> = (props): JSX.Element => {
         {label && <label htmlFor="select">{label}</label>}
         {description && <p className="form__description">{description}</p>}
         <select
+          disabled={disabled}
+          aria-disabled={disabled}
           {...(hasValidation && { ref: register(validationRules) })}
           {...(handleOnChange && { onChange: handleOnChange })}
           multiple={multiple}
