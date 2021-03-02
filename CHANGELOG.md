@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file.
 - anything you're working on
 --->
 
-## [1.1.27] - 2020-03-02
+## [1.1.28] - 2020-03-02
 
 ### Added
 
