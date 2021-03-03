@@ -23,8 +23,15 @@ All notable changes to this project will be documented in this file.
 - anything you're working on
 --->
 
+## [1.1.29] - 2020-03-03
+
+### Added
+
+- updated IFormProps to accept a optional readonly boolean
+- readonly prop added for Input and Textarea
+
 ## [1.1.28] - 2020-03-02
 
 ### Added
 
-- diabled props for all inputs
+- disabled props for all inputs
