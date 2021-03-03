@@ -10,7 +10,6 @@ export interface IFormProps extends IReactHookFormProps {
   placeholder?: string;
   value?: string | number | undefined;
   isChecked?: boolean;
-  hasValidation?: boolean;
   disabled?: boolean;
   readonly?: boolean;
 }
