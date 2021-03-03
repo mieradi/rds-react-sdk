@@ -24,7 +24,6 @@ export const FileUpload: React.FC<FileUploadProps> = (props): JSX.Element => {
     validationRules,
     errors,
     register,
-    hasValidation,
     handleOnChange,
   } = props;
 
@@ -40,14 +39,14 @@ export const FileUpload: React.FC<FileUploadProps> = (props): JSX.Element => {
             disabled={disabled}
             aria-disabled={disabled}
             {...(handleOnChange && { onClick: handleOnChange })}
-            {...(hasValidation && { ref: register(validationRules) })}
+            {...(validationRules && { ref: register(validationRules) })}
             id={id}
             type={inputType}
             name={name}
           />
         </div>
       </FileUploadStyles>
-      {hasValidation && (
+      {validationRules && (
         <FormError
           errors={errors}
           validationRules={validationRules}

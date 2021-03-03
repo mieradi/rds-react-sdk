@@ -23,6 +23,16 @@ All notable changes to this project will be documented in this file.
 - anything you're working on
 --->
 
+## [1.1.30] - 2020-03-03
+
+### Removed
+
+- removed hasValidation prop on all inputs in favour of using validationRules as an indicator
+
+### Added
+
+- now passing reset prop from react hook form to all children of Form
+
 ## [1.1.29] - 2020-03-03
 
 ### Added

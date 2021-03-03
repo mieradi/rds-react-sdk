@@ -18,7 +18,7 @@ export const Form: React.FC<IForm> = ({
   children,
   handleOnSubmit,
 }): JSX.Element => {
-  const { register, errors, handleSubmit, control } = useForm({
+  const { register, errors, handleSubmit, control, reset } = useForm({
     mode: 'onBlur',
   });
 
@@ -26,7 +26,7 @@ export const Form: React.FC<IForm> = ({
     <UBlock>
       <FormStyles onSubmit={handleSubmit(handleOnSubmit)}>
         {Children.map(children, function (child: any) {
-          return cloneElement(child, { control, errors, register });
+          return cloneElement(child, { control, errors, register, reset });
         })}
       </FormStyles>
     </UBlock>

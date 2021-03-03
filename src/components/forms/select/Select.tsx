@@ -31,7 +31,6 @@ export const Select: React.FC<ISelect> = (props): JSX.Element => {
     errors,
     register,
     children,
-    hasValidation,
   } = props;
 
   return (
@@ -42,7 +41,7 @@ export const Select: React.FC<ISelect> = (props): JSX.Element => {
         <select
           disabled={disabled}
           aria-disabled={disabled}
-          {...(hasValidation && { ref: register(validationRules) })}
+          {...(validationRules && { ref: register(validationRules) })}
           {...(handleOnChange && { onChange: handleOnChange })}
           multiple={multiple}
           id={id}
@@ -51,7 +50,7 @@ export const Select: React.FC<ISelect> = (props): JSX.Element => {
           {children}
         </select>
       </SelectStyles>
-      {hasValidation && (
+      {validationRules && (
         <FormError
           errors={errors}
           validationRules={validationRules}

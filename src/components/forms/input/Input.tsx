@@ -30,8 +30,8 @@ export const Input: React.FC<IInput> = (props): JSX.Element => {
     errors,
     register,
     isChecked,
-    hasValidation,
     handleOnClick,
+    readonly,
   } = props;
   const isSelectable = inputType === 'checkbox' || inputType === 'radio';
 
@@ -39,12 +39,13 @@ export const Input: React.FC<IInput> = (props): JSX.Element => {
     <InputStyles hasError={handleHasError(errors, name)}>
       {label && !isSelectable && <label htmlFor={id}>{label}</label>}
       <input
+        readOnly={readonly}
         aria-disabled={disabled}
         disabled={disabled}
         {...(handleOnChange && { onChange: handleOnChange })}
         {...(handleOnClick && { onClick: handleOnClick })}
         {...(isSelectable && { checked: isChecked })}
-        {...(hasValidation && { ref: register(validationRules) })}
+        {...(validationRules && { ref: register(validationRules) })}
         type={inputType}
         name={name}
         placeholder={placeholder}
@@ -52,7 +53,7 @@ export const Input: React.FC<IInput> = (props): JSX.Element => {
         id={id}
       />
       {label && isSelectable && <label htmlFor={id}>{label}</label>}
-      {hasValidation && (
+      {validationRules && (
         <FormError
           errors={errors}
           validationRules={validationRules}

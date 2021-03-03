@@ -30,10 +30,10 @@ export const TextArea: React.FC<TextAreaProps> = (props): JSX.Element => {
     value,
     register,
     errors,
-    hasValidation,
     validationRules,
     name,
     id,
+    readonly,
   } = props;
 
   return (
@@ -42,6 +42,7 @@ export const TextArea: React.FC<TextAreaProps> = (props): JSX.Element => {
         {label && <label htmlFor="textarea">{label}</label>}
         {description && <p>{description}</p>}
         <textarea
+          readOnly={readonly}
           disabled={disabled}
           aria-disabled={disabled}
           {...(handleOnChange && { onChange: handleOnChange })}
@@ -50,10 +51,10 @@ export const TextArea: React.FC<TextAreaProps> = (props): JSX.Element => {
           rows={rows}
           placeholder={placeholder}
           value={value}
-          {...(hasValidation && { ref: register(validationRules) })}
+          {...(validationRules && { ref: register(validationRules) })}
         />
       </TextAreaStyles>
-      {hasValidation && (
+      {validationRules && (
         <FormError
           errors={errors}
           validationRules={validationRules}

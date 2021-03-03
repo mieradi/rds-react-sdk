@@ -12,4 +12,5 @@ export interface IFormProps extends IReactHookFormProps {
   isChecked?: boolean;
   hasValidation?: boolean;
   disabled?: boolean;
+  readonly?: boolean;
 }
