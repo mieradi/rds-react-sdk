@@ -4,7 +4,6 @@ export interface IButton {
   ) => void;
   isLoading?: boolean;
   title: string;
-  url?: string;
   icon?: JSX.Element;
   ghost?: boolean;
   grey?: boolean;
