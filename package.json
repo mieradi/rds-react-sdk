@@ -1,11 +1,12 @@
 {
   "name": "rds-react-sdk",
-  "version": "1.1.29",
+  "version": "1.1.35",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c",
-    "start": "rollup -c -w"
+    "start": "rollup -c -w",
+    "deploy": "rollup -c && npm publish"
   },
   "repository": {
     "type": "git",

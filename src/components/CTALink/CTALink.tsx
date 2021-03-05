@@ -11,8 +11,6 @@ import { IButton } from '../../types/button/IButton';
 
 interface ICTALink extends IButton {
   url: string;
-  title: string;
-  backgroundColor?: string;
 }
 
 export const CTALink: React.FC<ICTALink> = (props): JSX.Element => {

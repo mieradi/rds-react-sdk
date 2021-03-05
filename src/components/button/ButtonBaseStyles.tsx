@@ -44,16 +44,16 @@ export const ButtonBaseStyles = css<IButtonBaseStyles>`
   ${({ ghost }) =>
     ghost &&
     css`
-      background-color: white;
-      color: var(--red);
-      border: 1px solid var(--red);
+      background-color: white !important;
+      color: var(--red) !important;
+      border: 1px solid var(--red) !important;
       box-shadow: 0 4px 9px rgba(0, 0, 0, 0.05);
 
       &:hover,
       &:hover path {
-        background-color: var(--red);
-        color: white;
-        fill: white;
+        background-color: var(--red) !important;
+        color: white !important;
+        fill: white !important;
       }
 
       & path {
@@ -65,16 +65,16 @@ export const ButtonBaseStyles = css<IButtonBaseStyles>`
 ${({ grey }) =>
     grey &&
     css`
-      background-color: var(--grey);
-      color: var(--black);
-      border: 1px solid var(--grey-yoda);
+      background-color: var(--grey) !important;
+      color: var(--black) !important;
+      border: 1px solid var(--grey-yoda) !important;
       box-shadow: 0 4px 9px rgba(black, 0.05);
 
       &:hover,
       &:hover path {
-        background-color: var(--black);
+        background-color: var(--black) !important;
         color: white !important;
-        fill: white;
+        fill: white !important;
       }
 
       & path {

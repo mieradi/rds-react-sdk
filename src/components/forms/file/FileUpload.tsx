@@ -38,7 +38,7 @@ export const FileUpload: React.FC<FileUploadProps> = (props): JSX.Element => {
           <input
             disabled={disabled}
             aria-disabled={disabled}
-            {...(handleOnChange && { onClick: handleOnChange })}
+            {...(handleOnChange && { onChange: handleOnChange })}
             {...(validationRules && { ref: register(validationRules) })}
             id={id}
             type={inputType}
