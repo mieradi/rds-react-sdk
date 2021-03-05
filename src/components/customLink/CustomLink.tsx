@@ -7,9 +7,8 @@
 
 import React from 'react';
 import { CustomLinkStyles } from '@components/customLink/CustomLinkStyles';
-import { IButton } from '../../types/button/IButton';
 
-interface ICustomLink extends IButton {
+interface ICustomLink {
   url: string;
   title: string;
 }
