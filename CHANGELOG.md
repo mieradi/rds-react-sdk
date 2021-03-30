@@ -23,6 +23,10 @@ All notable changes to this project will be documented in this file.
 - anything you're working on
 --->
 
+## [1.1.36] - 2021-03-20
+
+Added height and width restrictions to modal section child
+
 ## [1.1.35] - 2020-03-05
 
 Changed the CTALink and Button interfaces to not share unnecessary props

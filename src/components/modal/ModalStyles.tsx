@@ -20,6 +20,12 @@ export const ModalStyles = styled.div<ModalStylesProps>`
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  section:first-of-type {
+    max-height: 600px;
+    min-height: 300px;
+    min-width: 500px;
+    overflow: scroll;
+  }
 `;
 
 /**
