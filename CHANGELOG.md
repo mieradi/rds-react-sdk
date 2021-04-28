@@ -23,7 +23,40 @@ All notable changes to this project will be documented in this file.
 - anything you're working on
 --->
 
+## [1.1.40] - 2021-04-28
+
+### FIXED
+
+fixed duplicate child rendering
+
+## [1.1.39] - 2021-04-28
+
+### Added
+
+Grid and Grid Styles are now separate components
+
+### Changed
+
+Grid is a HOC and returns it's parent props. this is mainly used for forms and should be revised
+Masonry is now it's own folder index
+
+## [1.1.39] - 2021-04-28
+
+### MISTAKE
+
+## [1.1.37] - 2021-03-20
+
+### Changed
+
+updated layout styles
+
+### Added
+
+Added elipses constraints for list items
+
 ## [1.1.36] - 2021-03-20
+
+### Added
 
 Added height and width restrictions to modal section child
 

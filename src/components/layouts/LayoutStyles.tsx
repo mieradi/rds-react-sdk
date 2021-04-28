@@ -14,7 +14,7 @@ export const LayoutStyles = styled.div<LayoutStylesProps>`
  */
 
   display: grid;
-  /* grid-template-columns: 1; */
+  grid-template-columns: 1fr;
   grid-gap: var(--grid-gutter);
   padding: var(--block-padding-s);
   margin: 0 auto;

@@ -5,28 +5,33 @@
  * @returns returns desc
  */
 
-import styled from 'styled-components';
-import { greaterThan } from '@components/cuMediaQueries';
+import React, { Children, cloneElement } from 'react';
+import { GridStyles } from './GridStyles';
 
-interface GridProps {
+interface IGrid {
   largeGap?: boolean;
   size?: 2 | 3 | 4;
+  children?: React.ReactNode;
+  reset?: any;
+  errors?: any;
+  register?: any;
+  control?: any;
 }
 
-export const Grid = styled.div<GridProps>`
-  display: grid;
-  grid-gap: ${({ size }) => (size === 4 ? `24px` : `var(--grid-gutter);`)};
-  grid-template-columns: ${({ size }) =>
-    size ? `repeat(${size}, 1fr)` : `repeat(2, 1fr)`};
-  /* handle large gap prop */
-  ${({ largeGap }) =>
-    largeGap &&
-    `grid-gap: 50px;
-    ${greaterThan('l')`grid-gap: 80px;`}
-    `}
-
-  /* handle col prop */
-  ${({ size }) =>
-    `${greaterThan('s')`grid-template-columns: repeat(${size}, 1fr);`}
-    `}
-`;
+export const Grid: React.FC<IGrid> = ({
+  largeGap,
+  size,
+  reset,
+  errors,
+  register,
+  control,
+  children,
+}): JSX.Element => {
+  return (
+    <GridStyles largeGap={largeGap} size={size}>
+      {Children.map(children, function (child: any) {
+        return cloneElement(child, { reset, errors, register, control });
+      })}
+    </GridStyles>
+  );
+};

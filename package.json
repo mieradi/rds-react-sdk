@@ -1,6 +1,6 @@
 {
   "name": "rds-react-sdk",
-  "version": "1.1.35",
+  "version": "1.1.40",
   "description": "",
   "main": "dist/index.js",
   "scripts": {

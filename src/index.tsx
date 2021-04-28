@@ -13,7 +13,7 @@ import { Panel } from '@components/panel/Panel';
 import { UBlock } from '@components/UBlock/UBlock';
 import { Aside } from '@components/aside/Aside';
 import { Layout } from '@components/layouts/Layout';
-import { Masonry } from '@components/grid/Masonry';
+import { Masonry } from '@components/masonry/Masonry';
 import { ListingLoadingState } from '@components/loadingStates/listing-loading-states/ListingLoadingState';
 import { CheckBox } from '@components/forms/checkbox/CheckBox';
 import { FormError } from '@components/forms/error/FormError';

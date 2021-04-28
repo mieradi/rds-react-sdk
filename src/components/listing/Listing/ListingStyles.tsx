@@ -32,6 +32,10 @@ export const ListingStyles = styled.div<ListingStylesProps>`
     }
     & > li {
       position: relative;
+      width: 100%;
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       &:not(:last-child) {
         border-bottom: 1px solid var(--grey-yoda);
