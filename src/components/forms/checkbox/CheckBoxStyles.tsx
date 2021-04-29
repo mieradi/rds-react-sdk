@@ -5,9 +5,14 @@ import styled from 'styled-components';
  * @param {} param desc
  * @returns returns desc
  */
-
+interface ICheckBoxStyles {
+  isGroup?: boolean;
+}
 // RadioStyles extends this declaration
-export const CheckBoxStyles = styled.div`
+export const CheckBoxStyles = styled.div<ICheckBoxStyles>`
+  legend {
+    text-transform: capitalize;
+  }
   label {
     position: relative;
     display: flex;

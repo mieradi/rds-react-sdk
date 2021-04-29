@@ -23,6 +23,12 @@ All notable changes to this project will be documented in this file.
 - anything you're working on
 --->
 
+## [1.1.41] - 2021-04-29
+
+### ADDED
+
+added isGroup prop to checkboxes. this will conditionally render the `<fieldset>` tag and it's styling.
+
 ## [1.1.40] - 2021-04-28
 
 ### FIXED
