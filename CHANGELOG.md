@@ -27,7 +27,9 @@ All notable changes to this project will be documented in this file.
 
 ### ADDED
 
-added isGroup prop to checkboxes. this will conditionally render the `<fieldset>` tag and it's styling.
+the Form component now has an optional defaultValues object as supported by react-hook-form. https://react-hook-form.com/api/useform
+
+it also has optional access to the mode controller which controls when validation occurs. default is onBlur
 
 ## [1.1.40] - 2021-04-28
 
