@@ -41,7 +41,7 @@ export const DetailsStyles = styled.div`
 
     img {
       max-width: 75%;
-
+      cursor: pointer;
       margin: 0 auto;
       border: 7px solid rgba(var(--grey-yoda), 0.75);
       border-radius: 50%;

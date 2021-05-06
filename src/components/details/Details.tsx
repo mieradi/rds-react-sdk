@@ -14,6 +14,7 @@ interface DetailsProps {
   lastName?: string;
   imageUrl?: string;
   imageAlt?: string;
+  handleClick?: React.MouseEventHandler<HTMLImageElement>;
   caption?: {
     topText: string;
     bottomText?: string;
@@ -27,6 +28,7 @@ export const Details: React.FC<DetailsProps> = ({
   firstName,
   lastName,
   caption,
+  handleClick,
 }): JSX.Element => {
   return (
     <DetailsStyles>
@@ -35,6 +37,7 @@ export const Details: React.FC<DetailsProps> = ({
           <div className="details__aside">
             <figure>
               <img
+                onClick={handleClick}
                 src={imageUrl}
                 alt={`Profile image of ${firstName + ' ' + lastName}`}
               />
